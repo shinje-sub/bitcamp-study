@@ -30,11 +30,11 @@ public class Ex2 {
     System.out.print("차량 주차 장소?: ");
     String parking = keyboard.nextLine();
     
-    System.out.print("차량 상태?: ");
+    System.out.print("입·출차 상태?: ");
     String ExitStatus = keyboard.nextLine();
     
-    System.out.print("차량 구분?: ");
-    String VehicleClassification = keyboard.nextLine();
+    System.out.print("수납 구분?: ");
+    String acceptance = keyboard.nextLine();
     
     System.out.println();
     
@@ -47,10 +47,9 @@ public class Ex2 {
     System.out.printf("결제 금액 : %s" , Payment);
     System.out.println("원");
     System.out.printf("결제 유형 : %s" , GyeoljeYuhyeong);
-    System.out.println("원");
     System.out.printf("차량 주차 장소 : %s\n" , parking);
     System.out.printf("차량 상태 : %s\n" , ExitStatus);
-    System.out.printf("차량 구분 : %s\n" , VehicleClassification);
+    System.out.printf("차량 구분 : %s\n" , acceptance);
       keyboard.close();
   }
 }
