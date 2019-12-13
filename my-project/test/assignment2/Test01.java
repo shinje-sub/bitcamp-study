@@ -14,10 +14,11 @@ public class Test01 {
         
     System.out.printf("첫번째 값");
     int num1 = scan.nextInt();
+    
     System.out.printf("두번째 값");
     int num2 = scan.nextInt();
-    System.out.printf("연산자 선택(+,-,*,/): ");
     
+    System.out.printf("연산자 선택(+,-,*,/): ");
     String operator = Scan.next();
     
     if(operator.equals("+"));
