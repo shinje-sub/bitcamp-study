@@ -17,51 +17,57 @@ public class Ex2 {
     String[] parking = new String[100];
     String[] ExitStatus = new String[100];
     String[] acceptance = new String[100];
+    String response;
     
-    System.out.print("번호 ?: ");
-    String no = keyboard.nextLine();
-    
-    System.out.print("차종?: ");
-    String CarType = keyboard.nextLine();
-    
-    System.out.print("차량 번호?: ");
-    String CarNunbel = keyboard.nextLine();
-    
-    System.out.print("사진?: ");
-    String photo = keyboard.nextLine();
-    
-    System.out.print("할인률?: ");
-    String DiscountRate = keyboard.nextLine();
+    int count = 0;
+    for (int i = 0; i < 100; i++) {
+      System.out.printf("번호 ?: ");
+      no[i] = keyboard.nextInt();
+     
+      
+      System.out.printf("차종?: ");
+      Cartype[i] = keyboard.nextLine();
+      keyboard.nextLine();
+     
+      System.out.printf("차량 번호?: ");
+      CarNumbel[i] = keyboard.nextLine();
+      
+      System.out.printf("사진?: ");
+      photo[i] = keyboard.nextLine();
+      
+      System.out.printf("할인률?: ");
+      DiscountRatr[i] = keyboard.nextLine();
+     
+      System.out.printf("결제 금액?: ");
+      Payment[i] = keyboard.nextLine();
+      
+      System.out.printf("결제 유형?: ");
+      GyeoljeYuhyeong[i] = keyboard.nextLine();
 
-    System.out.printf("결제 금액?: ");
-    String Payment = keyboard.nextLine();
+      System.out.print("차량 주차 장소?: ");
+      parking[i] = keyboard.nextLine();
     
-    System.out.print("결제 유형?: ");
-    String GyeoljeYuhyeong = keyboard.nextLine();
+      System.out.print("입·출차 상태?: ");
+      ExitStatus[i] = keyboard.nextLine();
     
-    System.out.print("차량 주차 장소?: ");
-    String parking = keyboard.nextLine();
+      System.out.print("수납 구분?: ");
+      acceptance[i] = keyboard.nextLine();
     
-    System.out.print("입·출차 상태?: ");
-    String ExitStatus = keyboard.nextLine();
-    
-    System.out.print("수납 구분?: ");
-    String acceptance = keyboard.nextLine();
-    
-    System.out.println();
-    
-    System.out.printf("번호 : %s\n" , no);
-    System.out.printf("차종 : %s\n" , CarType);
-    System.out.printf("차량 번호 : %s\n" , CarNunbel);
-    System.out.printf("사진 : %s\n" , photo);
-    System.out.printf("할인률 : %s" , DiscountRate);
-    System.out.println("%");
-    System.out.printf("결제 금액 : %s" , Payment);
-    System.out.println("원");
-    System.out.printf("결제 유형 : %s" , GyeoljeYuhyeong);
-    System.out.printf("차량 주차 장소 : %s\n" , parking);
-    System.out.printf("차량 상태 : %s\n" , ExitStatus);
-    System.out.printf("차량 구분 : %s\n" , acceptance);
-      keyboard.close();
+      count ++;
+      System.out.println();
+      System.out.print("계속 입력하시겠습니까?(Y/n) ");
+      response = keyboard.nextLine();
+      if (!response.equalsIgnoreCase("y")) {
+        break;
+      }
+    }
+    keyboard.close();
+    for (int i = 0; i < count; i++) {
+      System.out.printf("번호:%s, 차종:%s\n차량 번호 :%s, 차량 위치:%s\n입차 날짜:%s,출차날짜:%s\n",
+          no[i], Cartype[i], CarNumbel[i], photo[i], 
+          DiscountRatr[i],Payment[i],GyeoljeYuhyeong[i],
+              parking[i],ExitStatus[i],acceptance[i]);
+    }
   }
 }
+
