@@ -1,0 +1,16 @@
+// 피보나치 수열의 30번째 항 구하기
+ 
+public class Hello {
+ 
+  public static void main(String[] args) {
+   int num1 =0, num2 =1 ,num3 =0;
+   for (int i=3; i<33; i++)
+   {
+     
+     num3 = num1 + num2;
+     System.out.printf("피보나치 수열을 %d번쨰 값 : %d\n",i, num3);
+     num1 = num2;
+     num2 = num3;
+    }
+  }
+}
