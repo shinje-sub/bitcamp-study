@@ -9,43 +9,58 @@ public class Ex1 {
   public static void main (String[] args) {
     Scanner keyboard = new Scanner(System.in);
 
-    
-    int[] no = new int[100];
-    String[] CarType = new String[100];
-    String[] CarNumber = new String[100];
-    String[] parking = new String[100];
-    Date[] date = new Date[100];
-    String[] Departure = new String[100];
-    //String[] EnteringAvehicle = new String[100];
-    String response;
-    
+    class Car {
+
+      int no;
+      String CarType;
+      String CarNumber;
+      String parking;
+      Date TodayDate;
+      String Departure;
+      //String EnteringAvehicle;
+      String response;
+    }
+
+    final int SIZE = 100;
+
+    Car[] cars = new Car[SIZE]; 
+
     int count = 0;
-    for (int i = 0; i < 100; i++) {
+
+    for (int i = 0; i < SIZE; i++ ) {
+
+      Car car = new Car();
+
       System.out.printf("번호? ");
-      no[i] = keyboard.nextInt();
+      car.no = keyboard.nextInt();
       keyboard.nextLine();
-      
+
       System.out.printf("차종? ");
-      CarType[i] = keyboard.nextLine();
-      
+      car.CarType = keyboard.nextLine();
+
       System.out.printf("차량번호? ");
-      CarNumber[i] = keyboard.nextLine();
-      
+      car.CarNumber = keyboard.nextLine();
+
       System.out.printf("차량 위치? ");
-      parking[i] = keyboard.nextLine();
-      
+      car.parking = keyboard.nextLine();
+
       //System.out.printf("차량 입차 날짜? ");
-     
-      date[i] = new Date(System.currentTimeMillis());
-    
-     
+
+      car.TodayDate = new Date(System.currentTimeMillis());
+
       System.out.printf("차량 출차 날짜? ");
-      Departure[i] = keyboard.nextLine();
-     
+      car.Departure = keyboard.nextLine();
+
+      cars[i] = car;
+      
       count ++;
-      
+
       System.out.println();
+
+      cars[i] = car;
       
+      String response;
+
       System.out.print("계속 입력하시겠습니까?(Y/n) ");
       response = keyboard.nextLine();
       if (!response.equalsIgnoreCase("y")) {
@@ -53,21 +68,28 @@ public class Ex1 {
       }
     }
     keyboard.close();
-    
+
     System.out.println();
-    
     for (int i = 0; i < count; i++) {
+
+      Car car = cars[i];
       System.out.printf("번호:%s, 차종:%s\n차량 번호 :%s, 차량 위치:%s\n입차 날짜:%s,출차날짜:%s\n",
-          no[i], CarType[i], CarNumber[i], parking[i], 
-           Departure[i],date[i],Departure[i]);
+          car.no, car.CarType, car.CarNumber, car.parking, 
+          car.Departure,car.TodayDate,car.Departure);
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
   }
 }
+
+
+
+
+
+
+
+
+
+
+

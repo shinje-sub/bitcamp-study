@@ -4,35 +4,29 @@ package com.eomcs.basic.ex04;
 public class Exam92 {
   
   public static void main(String[] args){
-    byte b = 100;
-    short s = 200;
-    int i = 18_3456_6789;
-    long l = 334_9876_9998_7654_3219L;
-  
-    // 메모리 크기에 상관없이 정수 변수의 값을 부동소수점 변수에 넣을 때
-    // 컴파일 오류가 발생하지 않는다.
-    // 단, 실행할 때 유효자릿수가 넘어가면 값이 짤릴 수 있다.
-    float f;
-    f = b;
-    System.out.println(f);
-    f = s;
-    System.out.println(f);
-    f = i;
-    System.out.println(f);
-    f = l;
-    System.out.println(f);
-    System.out.println();
+    float f = 3.14f;
+    double d = 3.14f;
     
-    double d;
-    d = b;
-    System.out.println(d);
-    d = s;
-    System.out.println(d);
-    d = i;
-    System.out.println(d);
-    d = l;
-    System.out.println(d);
+    int i;
+    long l;
     
+    // i = f; // 컴파일오류!
+    // i = l; // 컴파일오류!
+    // l = f; // 컴파일 오류!
+    // l = d; // 컴파일 오류!
+    
+    // 부동소수점 값을 정수 변수에 강제로 저장시키려면
+    // 형변환(type conversint; type casting) 문법을 사용해야 한다.
+    i = (int) f; // 단 , 소수점 이하의 수는 제거되고 정수만 저장된다.
+    System.out.println(i);
+    i = (int) d; // ok
+    System.out.println(i);
+    
+    l = (long) f; // OK!
+    l = (long) d; // OK!
+    
+    // 이렇게 개발자가 명확하게 다른 형의 값을 저장하라고 지시하는 문법을 
+    // "명시적 형변환(exaplicit type conversion/casting)"이라 한다.
   }
 }
 
