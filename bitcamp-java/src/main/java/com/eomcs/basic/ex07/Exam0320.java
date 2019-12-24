@@ -1,6 +1,6 @@
 package com.eomcs.basic.ex07;
 
-//# 메서드 : call by reference
+//# 메서드 : call by reference // 메서드 호출할 때 주소 넘김 (값을 받는 대신)
 //
 public class Exam0320 {
 

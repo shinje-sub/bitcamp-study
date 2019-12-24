@@ -1,0 +1,83 @@
+package com.eomcs.lms;
+
+import java.util.Scanner; 
+import java.sql.Date;
+
+public class App {
+
+  public static void main(String[] args) {
+
+    Scanner keyboard = new Scanner(System.in); 
+    System.out.println("명령> ");
+    /*
+    class Lesson{
+      int no;
+      String title;
+      String description;
+      Date StartData;
+      Date EndData;
+      int TotalHours;
+      int dayHours;
+    }
+
+    final int SIZE = 100;
+    
+    Lesson[] lessons = new Lesson[SIZE];
+    String response;
+    int count = 0;
+    
+    for (int i =0; i < SIZE; i++) {
+    
+      
+      Lesson lseeon = new Lesson();
+      
+      System.out.print("번호? ");
+      lseeon.no = keyboard.nextInt();
+      keyboard.nextLine();
+
+      System.out.print("수업명? ");
+      lseeon.title = keyboard.nextLine();
+
+      System.out.print("수업내용? ");
+      lseeon.description = keyboard.nextLine();
+
+      System.out.print("시작일? ");
+      lseeon.StartData = Date.valueOf(keyboard.next());
+
+      System.out.print("종료일? ");
+      lseeon.EndData = Date.valueOf(keyboard.next());
+
+      System.out.print("총수업시간? ");
+      lseeon.TotalHours = keyboard.nextInt();
+      keyboard.nextLine();
+
+      System.out.print("일수업시간? ");
+      lseeon.dayHours = keyboard.nextInt();
+      keyboard.nextLine(); 
+      */
+      
+      lessons[i] = lseeon;
+      
+      count++;
+      
+      System.out.println();
+      
+      
+      System.out.print("계속 입력하시겠습니까?(Y/n) ");
+      response = keyboard.nextLine();
+      if (!response.equalsIgnoreCase("y")) {
+        break;
+      }
+ }
+      keyboard.close();
+      
+      System.out.println();
+     
+      for (int i = 0; i < count; i++) { 
+        Lesson lseeon = lessons[i];
+        System.out.printf("%d, %s, %s,  %s ~ %s %d\n",
+            lseeon.no, lseeon.title, lseeon.description, lseeon.StartData, 
+            lseeon.EndData, lseeon.TotalHours);
+        }
+    }
+}
