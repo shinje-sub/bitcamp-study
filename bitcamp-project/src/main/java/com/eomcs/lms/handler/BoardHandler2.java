@@ -5,15 +5,15 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
 
-public class BoardHandler {
+public class BoardHandler2 {
+  
 
-
-
+  
   static final int BOARD_SIZE = 100;
   static Board[] boards = new Board[BOARD_SIZE];
   static int boardCount = 0;
   public static Scanner keyboard;
-
+ 
   public static void listBoard() {
     for (int i = 0; i < boardCount; i++) {
       Board b = boards[i];
@@ -24,7 +24,7 @@ public class BoardHandler {
 
   public static void addBoard() {
     Board board = new Board();
-
+    
     System.out.print("번호? ");
     board.no = keyboard.nextInt();
     keyboard.nextLine(); // 줄바꿈 기호 제거용
@@ -34,11 +34,10 @@ public class BoardHandler {
 
     board.date = new Date(System.currentTimeMillis());
     board.viewCount = 0;
-
+    
     boards[boardCount++] = board;
     System.out.println("저장하였습니다.");
   }
-
   public static void detailBoard() {
     System.out.print("게시물 번호? ");
     int no = keyboard.nextInt();

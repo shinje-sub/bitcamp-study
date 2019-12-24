@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
 
-public class BoardHandler {
+public class BoardHandler5 {
 
 
 
@@ -38,7 +38,6 @@ public class BoardHandler {
     boards[boardCount++] = board;
     System.out.println("저장하였습니다.");
   }
-
   public static void detailBoard() {
     System.out.print("게시물 번호? ");
     int no = keyboard.nextInt();

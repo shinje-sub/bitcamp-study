@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
 
-public class BoardHandler {
+public class BoardHandler4 {
 
 
 
