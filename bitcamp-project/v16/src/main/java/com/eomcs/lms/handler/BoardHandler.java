@@ -7,25 +7,24 @@ import com.eomcs.lms.domain.Board;
 
 public class BoardHandler {
 
-  ArrayList boardList;
+  BoardList boardList;
 
   Scanner input;
-
+  
   public BoardHandler(Scanner input) {
     this.input = input;
-    boardList = new ArrayList();
-
+    boardList = new BoardList();
+    
   }
 
   public BoardHandler(Scanner input, int capacity) {
     this.input = input;
-    boardList = new ArrayList(); 
+    boardList = new BoardList(); 
   }
-
+      
   public void listBoard() {
-    Object[] arr = this.boardList.toArray();
-    for (Object obj : arr) {
-      Board b= (Board)obj;
+   Board[] boards = boardList.toArray();
+    for (Board b : boards) {
       System.out.printf("%d, %s, %s, %d\n", 
           b.getNo(), b.getTitle(), b.getDate(), b.getViewCount());
     }
@@ -44,22 +43,22 @@ public class BoardHandler {
     board.setDate(new Date(System.currentTimeMillis()));
     board.setViewCount(0);
 
-
+    
     boardList.add(board);
-
+    
     System.out.println("저장하였습니다.");
   }
 
   public void detailBoard() {
-    System.out.print("게시물 인덱스? ");
-    int index = input.nextInt();
+    System.out.print("게시물 번호? ");
+    int no = input.nextInt();
     input.nextLine(); // 숫자 뒤의 남은 공백 제거
-
-    Board board = (Board) this.boardList.get(index);
-
+    
+    Board board = boardList.get(no);
+    
 
     if (board == null) {
-      System.out.println("게시물 인덱스가 유효하지 않습니다.");
+      System.out.println("게시물 번호가 유효하지 않습니다.");
       return;
     }
 
