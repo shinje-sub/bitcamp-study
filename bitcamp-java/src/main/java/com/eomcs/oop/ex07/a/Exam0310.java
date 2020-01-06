@@ -20,6 +20,7 @@ class Score3 {
   // => 외부에서 호출할 수 있도록 public 으로 공개모드로 설정한다.
   // => 필드를 비공개로 막으면 값을 조회할 수 없기 때문에
   //    getter를 추가해야 한다.
+  //
   public void setKer(int kor) {
     this.kor = kor;
     this.compute();

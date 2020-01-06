@@ -25,7 +25,7 @@ public class BoardHandler {
   public void listBoard() {
     Object[] arr = this.boardList.toArray();
     for (Object obj : arr) {
-      Board b= (Board)obj;
+      Board b = (Board)obj;
       System.out.printf("%d, %s, %s, %d\n", 
           b.getNo(), b.getTitle(), b.getDate(), b.getViewCount());
     }

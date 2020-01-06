@@ -24,8 +24,8 @@ class Score2 {
   //          get필드명() {...}
   // => 메서드의 이름이 get 으로 시작한다고 해서 "게터(getter)"라고 부른다.
   // => 그리고 이런 getter는 공개 모드로 설정한다.
-  
-  public int getSum() {
+
+  public int getSum() { // get으로 시작하는 메서를 겟터라 부른다.
     return this.sum;
   }
 
@@ -40,11 +40,13 @@ class Score2 {
 
 public class Exam0210 {
   public static void main(String[] args) {
+
     Score2 s1 = new Score2();
     s1.name = "홍길동";
     s1.kor = 100;
     s1.eng = 90;
     s1.math = 80;
+
     s1.compute();
 
     // 계산을 한 후에 임의적으로 합계나  평균을 변경한다면?

@@ -14,16 +14,16 @@ public class MemberHandler {
 
   public MemberHandler(Scanner input) {
     this.input = input;
-    this.memberList = new ArrayList();
+    memberList = new ArrayList();
   }
 
   public void listMember() {
     Object[] arr = this.memberList.toArray();
-    for (Object obj : arr) {
-      Member m = (Member) obj;
+      for (Object obj : arr) {
+        Member m = (Member)obj;
       System.out.printf("%d, %s, %s, %s, %s\n", 
           m.getNo(), m.getName(), m.getEmail(), m.getTel(), m.getRegisteredDate());
-    }
+      }
   }
 
   public void addMember() {
@@ -49,9 +49,9 @@ public class MemberHandler {
     member.setTel(input.nextLine());
 
     member.setRegisteredDate(new Date(System.currentTimeMillis()));
-
+    
     memberList.add(member);
-
+    
     System.out.println("저장하였습니다.");
   }
 
