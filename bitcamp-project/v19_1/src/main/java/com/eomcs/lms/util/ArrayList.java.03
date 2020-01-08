@@ -1,0 +1,15 @@
+package com.eomcs.lms.util;
+
+public class ArrayList {
+
+  Object[] elementData;
+  int size;
+
+  public ArrayList() {
+    super();
+
+    this.elementData = new Object[100];
+  }
+
+ 
+}
