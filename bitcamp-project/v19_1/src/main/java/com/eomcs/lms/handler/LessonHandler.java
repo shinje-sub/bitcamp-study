@@ -70,7 +70,7 @@ public class LessonHandler {
 
 
     if (lesson == null) {
-      System.out.println("게시물 인덱스가 유효하지 않습니다.");
+      System.out.println("게시글 인덱스가 유효하지 않습니다.");
       return;
     }
 
