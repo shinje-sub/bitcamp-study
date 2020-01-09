@@ -18,11 +18,6 @@ public class BoardHandler {
 
   }
 
-  public BoardHandler(Scanner input, int capacity) {
-    this.input = input;
-    this.boardList = new ArrayList<>(); 
-  }
-
   public void listBoard() {
     // BoardList의 보관된 값을 받을 배열을 준비한다.
     Board[] arr = new Board[this.boardList.size()];

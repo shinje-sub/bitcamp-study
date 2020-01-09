@@ -1,0 +1,8 @@
+package com.eomcs.lms.util;
+
+public class LinkedList {
+ static class Node {
+   Object value; // value는 어떤 변수든 저장가능하다.
+   Node next;
+ }
+}

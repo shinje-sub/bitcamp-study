@@ -19,7 +19,6 @@ public class LessonHandler {
 
   }
 
-
   public void listLesson() {
     // LessonList의 보관된 값을 받을 배열을 준비한다.
     Lesson[] arr = this.lessonList.toArray(new Lesson[this.lessonList.size()]);
