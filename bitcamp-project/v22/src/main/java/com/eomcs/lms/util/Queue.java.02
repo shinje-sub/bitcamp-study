@@ -1,0 +1,5 @@
+package com.eomcs.lms.util;
+
+public class Queue<E> extends LinkedList<E>{
+
+}
