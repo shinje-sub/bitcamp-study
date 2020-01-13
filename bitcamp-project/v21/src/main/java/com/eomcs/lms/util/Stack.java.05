@@ -1,0 +1,25 @@
+package com.eomcs.lms.util;
+
+import java.util.Arrays;
+
+public class Stack {
+
+  private static final int DEFALT_CAPACITY = 10;
+
+  Object[] elementData;
+  int size;
+
+  public Stack() {
+    this.elementData = new Object[DEFALT_CAPACITY];
+    this.size = 0; 
+  }
+
+  public void push(Object value) {
+    if (this.size == elementData.length) {
+      int oldCapacity = elementData.length;
+      int newCapacity = oldCapacity + (oldCapacity >> 1);
+      this.elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+    this.elementData[size++] = value;
+  }
+}

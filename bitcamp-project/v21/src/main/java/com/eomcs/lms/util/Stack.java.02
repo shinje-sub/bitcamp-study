@@ -1,0 +1,11 @@
+package com.eomcs.lms.util;
+
+public class Stack {
+
+  private static final int DEFALT_CAPACITY = 10;
+  
+  Object[] elementData;
+  int size;
+  
+  
+}

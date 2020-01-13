@@ -1,0 +1,18 @@
+package com.eomcs.lms.util;
+
+public class Stack {
+
+  private static final int DEFALT_CAPACITY = 10;
+
+  Object[] elementData;
+  int size;
+
+  public Stack() {
+    this.elementData = new Object[DEFALT_CAPACITY];
+    this.size = 0; 
+  }
+
+  public void push(Object value) {
+    this.elementData[size++] = value;
+  }
+}

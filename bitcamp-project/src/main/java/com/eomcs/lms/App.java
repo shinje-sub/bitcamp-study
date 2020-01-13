@@ -1,79 +1,95 @@
 package com.eomcs.lms;
 
-
 import java.util.Scanner;
 import com.eomcs.lms.handler.BoardHandler;
 import com.eomcs.lms.handler.LessonHandler;
 import com.eomcs.lms.handler.MemberHandler;
 import com.eomcs.lms.util.Prompt;
-
+import com.eomcs.lms.util.Queue;
+import com.eomcs.lms.util.Stack;
 
 public class App {
 
   static Scanner keyboard = new Scanner(System.in);
-  
-  
+
+  static Stack<String> commandStack = new Stack<>();
+  static Queue commandQueue = new Queue();
+
+  private static int count; 
 
   public static void main(String[] args) {
-   
+
     Prompt prompt = new Prompt(keyboard);
-    
-    BoardHandler BoardHandler = new BoardHandler(prompt);
-    LessonHandler LessonHandler = new LessonHandler(prompt);
-    MemberHandler MemberHandler = new MemberHandler(prompt);
+
+    BoardHandler boardHandler = new BoardHandler(prompt);
+    LessonHandler lessonHandler = new LessonHandler(prompt);
+    MemberHandler memberHandler = new MemberHandler(prompt);
+
     String command;
 
     do {
       System.out.print("\n명령> ");
       command = keyboard.nextLine();
 
+      if (command.length() == 0)
+        continue;
+
+      commandStack.push(command);
+
+      commandQueue.offer(command);
+
       switch (command) {
         case "/lesson/add":
-          LessonHandler.addLesson();
+          lessonHandler.addLesson();
           break;
         case "/lesson/list":
-          LessonHandler.listLesson();
+          lessonHandler.listLesson();
           break;
         case "/lesson/detail":
-          LessonHandler.detailLesson();
+          lessonHandler.detailLesson();
           break;
         case "/lesson/update":
-          LessonHandler.updateLesson();
+          lessonHandler.updateLesson();
           break;
         case "/lesson/delete":
-          LessonHandler.deleteLesson();
+          lessonHandler.deleteLesson();
           break;
         case "/member/add":
-          MemberHandler.addMember();
+          memberHandler.addMember();
           break;
         case "/member/list":
-          MemberHandler.listMember();
+          memberHandler.listMember();
           break;
         case "/member/detail":
-          MemberHandler.detailMember();
+          memberHandler.detailMember();
           break;
         case "/member/update":
-          MemberHandler.updateMember();
+          memberHandler.updateMember();
           break;
         case "/member/delete":
-          MemberHandler.deleteMember();
+          memberHandler.deleteMember();
           break;
         case "/board/add":
-          BoardHandler.addBoard();
+          boardHandler.addBoard();
           break;
         case "/board/list":
-          BoardHandler.listBoard();
+          boardHandler.listBoard();
           break;
         case "/board/detail":
-          BoardHandler.detailBoard();
-          break;
+          boardHandler.detailBoard();
+          break;  
         case "/board/update":
-          BoardHandler.updateBoard();
-          break;
+          boardHandler.updateBoard();
+          break; 
         case "/board/delete":
-          BoardHandler.deleteBoard();
+          boardHandler.deleteBoard();
+          break; 
+        case "history":
+          printCommandHistory();
           break;
-          
+        case "history2":
+          printCommandHistory2();
+          break;
         default:
           if (!command.equalsIgnoreCase("quit")) {
             System.out.println("실행할 수 없는 명령입니다.");
@@ -86,4 +102,45 @@ public class App {
 
     keyboard.close();
   }
+
+  private static void printCommandHistory2() {
+    Queue historyQueue = commandQueue.clone();
+    int count = 0;
+    
+    while (historyQueue.size() > 0) {
+      System.out.println(historyQueue.poll());
+
+      if ((++count % 5) == 0) {
+        System.out.print(":");
+        String str = keyboard.nextLine();
+        if (str.equalsIgnoreCase("q")) {
+          break;
+        }
+      }
+    }
+  }
+  private static void printCommandHistory() {
+    Stack<String> historyStack = (Stack<String>) commandStack.clone();
+    int count = 0;
+    while (!historyStack.empty()) {
+      System.out.println(historyStack.pop());
+      count++;
+
+      if ((count % 5) == 0) {
+        System.out.print(":");
+        String str = keyboard.nextLine();
+        if (str.equalsIgnoreCase("q")) {
+          break;
+        }
+      }
+    }
+
+
+  }
 }
+
+
+
+
+
+
