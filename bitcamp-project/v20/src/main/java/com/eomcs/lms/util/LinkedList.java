@@ -14,7 +14,7 @@ public class LinkedList<E> {
     Node<E> newNode = new Node<>();
     newNode.value = value;
 
-    if(first == null) {
+    if (first == null) {
       last = first = newNode;
     } else {
       last.next = newNode;
