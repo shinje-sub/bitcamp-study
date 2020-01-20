@@ -23,7 +23,8 @@ public class Exam0110 {
     list.remove(0); // bbb, ddd,
 
     print(list);
-
+    
+    // 우리가 작성한 remove()는 유효한 인덱스가 아닌 경우 무시한다
     list.remove(4); // bbb, ddd,
 
     print(list);

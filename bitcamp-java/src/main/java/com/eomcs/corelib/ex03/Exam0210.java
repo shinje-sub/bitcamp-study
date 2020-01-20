@@ -14,6 +14,13 @@ public class Exam0210 {
     list.add(s3);
     print(list);
 
+    // contains() 가 값을 비교할 때는
+    // hashCode() 같은지 비교한다.
+    // 또한 equals()의 결과가 true 인지 비교한다.
+    // 결론!
+    // => String 클래스인 경우 hashCode()와 equals()를 오버라이딩 했기 때문에
+    // 서로 다른 객체(s2와 s4)라도 값이 같으면 같은 객체로 간주한다.
+    // => 그래서 다음 코드의 실행 결과는 true 이다.
     System.out.println(list.contains(s4));
   }
 

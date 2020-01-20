@@ -9,7 +9,7 @@ public class QueueIterator<E> implements Iterator<E> {
     this.queue = queue.clone();
   }
   @Override
-  public boolean hasNaxt() {
+  public boolean hasNext() {
     return queue.size() > 0;
   }
 

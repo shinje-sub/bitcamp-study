@@ -8,8 +8,6 @@ public class Exam0520 {
     // => 생성자 보다 먼저 실행된다.
     static int a = 100;
     int b = 200;
-    
-  
   }
   public static void main(String[] args) {
 

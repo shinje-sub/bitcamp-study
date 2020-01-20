@@ -69,7 +69,6 @@ public class Exam0521 {
     print(bike);
     
     print(sedan);
-
     
     print(truck);
 

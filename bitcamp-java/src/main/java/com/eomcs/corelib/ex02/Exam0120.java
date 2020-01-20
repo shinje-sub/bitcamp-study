@@ -11,8 +11,8 @@ public class Exam0120 {
     // => Object에 정의되어 있는 메서드이다.
     // => 인스턴스가 같은지 비교한다.
     //
-    System.out.println(s1.equals(s2)); // 결과: true
-    System.out.println(s1.equals(s3)); // 결과: true
+    System.out.println(s1 == s2); // 결과: true
+    System.out.println(s1 == s3); // 결과: true
     
     // s1, s2, s3 가 서로 다른 인스턴스를 가리키는데 왜 결과가 true 인가?
     // => String 클래스에서 equals()를 오버라이딩 했기 때문이다.

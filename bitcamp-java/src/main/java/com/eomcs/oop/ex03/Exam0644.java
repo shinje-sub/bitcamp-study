@@ -25,6 +25,7 @@ public class Exam0644 {
     //    설계도는 메모리에 로딩되어 있어야 한다.
     //    따라서 설계도가 없으면 즉시 설계도를 로딩할 것이다.
     new A();
+    
     System.out.println("종료!");
   }
 }

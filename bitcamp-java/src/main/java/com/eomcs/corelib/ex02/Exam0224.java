@@ -41,6 +41,9 @@ public class Exam0224 {
     System.out.println(m);
   }
   
+  // auto-boxing/auto-unboxing 기능이 제공되기 때문에
+  // 다음과 같이 primitive type의 값과 객체를 구분하지 않고
+  // Object 파라미터를 사용하여 처리할 수 있다.
   static void printObject(Object obj) {
     System.out.println(obj);
   }

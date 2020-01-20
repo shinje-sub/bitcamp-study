@@ -1,4 +1,4 @@
-# 24_5 - `Iterator` 구현체와 익명 클래스 (local class)
+# 24_5 - `Iterator` 구현체와 익명 클래스 (Anonymous class)
 
 ## 학습 목표
 

@@ -10,7 +10,7 @@ public class ListIterator<E> implements Iterator<E> {
     this.list = list;
   }
   @Override
-  public boolean hasNaxt() {
+  public boolean hasNext() {
     return cursor < list.size();
   }
 

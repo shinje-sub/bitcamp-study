@@ -10,12 +10,11 @@ public class Car2 {
     System.out.println("Car2()");
   }
 
-  public static Car2 getInstance() { // 대신 객체를 생성해주는 객체를 만든다
+  public static Car2 getInstance() {
     if (Car2.instance == null) {
       Car2.instance = new Car2();
     }
     return Car2.instance;
-
   }
 }
 

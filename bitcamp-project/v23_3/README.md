@@ -9,7 +9,7 @@
 ## 실습 소스 및 결과
 
 - src/main/java/com/eomcs/util/List.java 추가
-- src/main/java/com/eomcs/util/AbstractList.java 추가
+- src/main/java/com/eomcs/util/AbstractList.java 변경
 ## 실습
 
 ### 훈련1. 추상 클래스에서 추상 메서드를 추출하여 인터페이스에 정의하라

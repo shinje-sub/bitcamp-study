@@ -1,8 +1,7 @@
 package com.eomcs.oop.ex06.c;
 
 public class C2 extends C {
-
-
+  
   // 다음은 C의 메서드를 오버라이딩 한 게 아니다!
   // 왜? C의 m1()은 private이기 때문에 오직 C에서만 사용할 수 있다.
   //    C2에서 접근할 수 없다. 접근할 수 없으니, 오버라이딩은 불가능하다!
@@ -18,10 +17,9 @@ public class C2 extends C {
   // 결론! 접근 권한이 없는 메서드는 오버라이딩 불가!
 
   // 다음은 전형적인 오버라이딩의 예이다.
-  
-    @Override void m2() {} // OK
-    @Override protected void m3() {} // OK
-    @Override public void m4() {} // OK
+  @Override void m2() {} // OK
+  @Override protected void m3() {} // OK
+  @Override public void m4() {} // OK
 }
 
 // 멤버의 접근 범위

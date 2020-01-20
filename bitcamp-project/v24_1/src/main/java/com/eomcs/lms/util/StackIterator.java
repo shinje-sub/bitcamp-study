@@ -9,7 +9,7 @@ public class StackIterator<E> implements Iterator<E> {
     this.stack = stack.clone();
   }
   @Override
-  public boolean hasNaxt() {
+  public boolean hasNext() {
     return !stack.empty();
   }
 

@@ -14,7 +14,7 @@ public class Exam0210 {
     System.out.println(s1.compareTo("Hello"));
     System.out.println(s1.compareTo("Hellu"));
 
-    System.out.println(s1.contains("ll")); // 인스턴스 메서드
+    System.out.println(s1.contains("ll"));
     System.out.println(s1.contains("ee"));
 
     // 두 문자열을 연결하여 새 문자열을 만들자!
@@ -35,7 +35,7 @@ public class Exam0210 {
     //    이클립스에서 JVM을 실행하면 JVM은 기본으로 UTF-8 문자표를 사용하여 
     //    바이트 배열에 코드 값을 저장한다. 
     for (int i = 0; i < bytes.length; i++)
-      System.out.printf("%x,", bytes[i]); // 핵사 데시멀
+      System.out.printf("%x,", bytes[i]);
     System.out.println();
 
     // 다른 인스턴스 메서드를 사용하여 바이트 배열을 추출해보자.
@@ -49,12 +49,11 @@ public class Exam0210 {
     // 즉 "클래스 메서드=스태틱 메서드"를 제공한다.
 
     // => 형식을 갖춘 문자열을 만들기
-    // 클레스 메서드 format join
-    String s4 = String.format("%s님 반갑습니다", "홍길동"); 
+    String s4 = String.format("%s님 반갑습니다", "홍길동");
     System.out.println(s4);
 
     // => 구분자와 문자열들을 파라미터로 받아서 새 문자열을 만든다.
-    String s5 = String.join(":", "홍길동", "임꺽정", "유관순"); // : 아규먼트
+    String s5 = String.join(":", "홍길동", "임꺽정", "유관순");
     System.out.println(s5);
 
     // => primitive 값을 문자열로 만든다.
