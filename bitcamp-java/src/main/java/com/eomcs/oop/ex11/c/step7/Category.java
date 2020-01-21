@@ -1,7 +1,6 @@
 // static nested class 문법을 이용하여 상수를 효과적으로 관리하기
 package com.eomcs.oop.ex11.c.step7;
 
-
 public class Category {
 
   // static nested class 를 사용하여
@@ -17,7 +16,7 @@ public class Category {
   // => 바깥 클래스를 패키지처럼 생각할 수 있어 이해하고 관리하기 편하다.
   //
 
-  // 중접 클래스 이름을 일부로 소문자로 지어서
+  // 중첩 클래스 이름을 일부로 소문자로 지어서
   // 마치 일반 필드인것처럼 보이게 한다.
   //
   public static class computer {

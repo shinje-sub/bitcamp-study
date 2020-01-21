@@ -17,12 +17,12 @@ public class Exam0110 {
     void m1() {
       sValue = 100; // OK
       //iValue = 100; // 컴파일 오류!
-
+      
       sm(); // OK
       //im(); // 컴파일 오류!
     }
   }
-
+  
   // 결론:
   // 인스턴스 멤버를 사용하지 않는다면 
   // static nested class 로 정의하라!

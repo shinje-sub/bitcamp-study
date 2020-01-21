@@ -1,6 +1,5 @@
-// anonymous class - 사용 전 : 로컬 클래스 사용
+// anonymous class - 사용 전: 로컬 클래스 사용
 package com.eomcs.oop.ex11.a;
-
 
 public class Exam0410 {
   // 인터페이스의 경우 static으로 선언하지 않아도 스태틱 멤버에서 사용할 수 있다.
@@ -17,13 +16,7 @@ public class Exam0410 {
       }
     }
 
-    final My obj = new My();
+    final A obj = new My();
     obj.print();
-
-    // 익명 클래스로 인터페이스 구현하기
-
   }
-
 }
-
-

@@ -8,7 +8,6 @@ public class Exam0350 {
     obj.m1();
   }
 
-
   void m1() {
     final int a = 100; // 로컬 변수
 
@@ -23,5 +22,4 @@ public class Exam0350 {
     final A obj = new A();
     obj.m1();
   }
-
 }

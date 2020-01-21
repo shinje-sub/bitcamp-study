@@ -1,7 +1,6 @@
 // anonymous class - 클래스 상속
 package com.eomcs.oop.ex11.a;
 
-
 public class Exam0430 {
   // 클래스는 스태틱으로 선언해야만 스태틱 멤버에서 접근할 수 있다.
   static abstract class A {
@@ -20,11 +19,5 @@ public class Exam0430 {
       }
     };
     obj.print();
-
-    // 익명 클래스로 인터페이스 구현하기
-
   }
-
 }
-
-

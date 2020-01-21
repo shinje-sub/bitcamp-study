@@ -11,22 +11,23 @@ import static com.eomcs.oop.ex11.a.Exam0130_X.sValue;
 import static com.eomcs.oop.ex11.a.Exam0130_X.m1;
 
 // static nested class는 static 없이 지정한다. 
-import static com.eomcs.oop.ex11.a.Exam0130_X.A;
+import com.eomcs.oop.ex11.a.Exam0130_X.A;
 
 // 각각 멤버를 지정하는 대신 
 // 다음과 같이 wildcard(*)를 사용하여 전체 멤버를 한 번에 지정할 수 있다.
 //import static com.eomcs.oop.ex11.a.Exam0130_X.*;
 
 public class Exam0140 {
+  
   public static void main(String[] args) {
     // import static 을 이용하면 패키지 멤버 클래스를 사용하는 것과 똑 같은 방법으로 
     // 클래스 이름을 생략할 수 있다.
     sValue = 100;
     m1();
-
+    
     // static nested class 또한 같은 방식으로 사용할 수 있다.
     A obj;
     obj = new A();
-
+    
   }
 }

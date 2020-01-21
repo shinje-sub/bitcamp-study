@@ -1,4 +1,4 @@
-// non static nested class = inner class 응용 III
+// non-static nested class = inner class 응용 III
 package com.eomcs.oop.ex11.a;
 
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ public class Exam0242 {
     while (i1.hasNext()) {
       System.out.println(i1.next());
     }
-    System.out.println("------------------");
+    System.out.println("--------------------");
+
     while (i2.hasNext()) {
       System.out.println(i2.next());
     }
-    System.out.println("------------------");
-
-
+    System.out.println("--------------------");
   }
 }
+

@@ -1,7 +1,6 @@
 // anonymous class - lambda 문법 사용
 package com.eomcs.oop.ex11.a;
 
-
 public class Exam0421 {
   // 인터페이스의 경우 static으로 선언하지 않아도 스태틱 멤버에서 사용할 수 있다.
   interface A {
@@ -16,11 +15,5 @@ public class Exam0421 {
     final A obj = () -> System.out.println("Hello!");
 
     obj.print();
-
-    // 익명 클래스로 인터페이스 구현하기
-
   }
-
 }
-
-
