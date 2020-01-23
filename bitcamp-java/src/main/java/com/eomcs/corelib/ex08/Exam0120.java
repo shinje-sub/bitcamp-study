@@ -54,7 +54,7 @@ public class Exam0120 {
     System.out.println(k3 == k6);
     System.out.printf("equals(): %b\n", k3.equals(k6));
     System.out.printf("hashCode(): %d, %d\n", k3.hashCode(), k6.hashCode());
-    System.out.println("-----------------------------");
+    System.out.println("-----------------------------------");
 
 
     System.out.println(map.get(k6));
@@ -65,7 +65,7 @@ public class Exam0120 {
     // equals()의 리턴 값이 true이면 두 개의 key는 같다고 간주한다.
     // => 그러나 우리가 사용한 MyKey 클래스는 hashCode()와 equals()를
     // 오버라이딩 하지 않았기 때문에,
-    // 따라서 값이 같더라도 인스턴스가 다르면 hashCode()의 리턴 값이 다르게 나온다.
+    // 값이 같더라도 인스턴스가 다르면 hashCode()의 리턴 값이 다르게 나온다.
     // equals() 또한 false를 리턴한다.
     // 해결책?
     // => key로 사용할 클래스는 항상 hashCode()와 equals()를 오버라이딩 하여

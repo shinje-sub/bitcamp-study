@@ -30,7 +30,10 @@ public class Exam0411 {
 
   public static void main(String[] args) {
     Interest i1 = getInterset(1.5);
-    System.out.println(i1.compute(10_0000_0000));
+    System.out.printf("합계 : %.1f\n", i1.compute(10_0000_0000));
+
+    Interest i2 = getInterset(2.5);
+    System.out.printf("합계 : %.1f\n", i2.compute(10_0000_0000));
   }
 }
 

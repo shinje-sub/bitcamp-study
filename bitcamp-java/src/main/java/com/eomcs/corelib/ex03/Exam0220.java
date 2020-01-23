@@ -35,7 +35,8 @@ public class Exam0220 {
 
     System.out.println(list.contains(s4)); // false
     // Member 클래스는 equals()를 오버라이딩 하지 않았다.
-    // 따라서 같은 값을 갖더라도 인스턴스가 다르면 equals()의 검사 결과도 false가 될 것이다.
+    // 따라서 같은 값을 갖더라도 인스턴스가 다르면
+    // equals()의 검사 결과도 false가 될 것이다.
     // 그래서 contains()로 s4 객체와 같은 객체가 있는지 검사해보면,
     // 같은 객체가 없다고 나온다.
   }

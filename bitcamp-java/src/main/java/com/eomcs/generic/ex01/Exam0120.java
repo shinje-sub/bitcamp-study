@@ -2,7 +2,6 @@
 package com.eomcs.generic.ex01;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Exam0120 {
   public static void main(String[] args) {
@@ -31,12 +30,13 @@ public class Exam0120 {
 
     // 만약 제네릭이라는 문법이 없다면?
     // 1) 값을 꺼낼 때 마다 형변환을 해야 한다.
-    //    예) Member member = (Member) list.get(0)
+    //    예) Member member = (Member) list.get(0);
+    //
     // 2) 형변환하기 싫다면 값의 종류별로 ArrayList를 만들어야 한다.
-    //     예) class MemberArrayList(...)
+    //    예) class MemberArrayList {...}
     //
     // 제네릭 문법이 존재하므로,
-    // => 한 개의 클래스로 형변환 없이 특정 타입 전용 객체를 다룰 수 있다.
+    // => 한 개의 클래스로 형변환 없이 특정 타입 전용 클래스로 만들 수 있다.
   }
 }
 

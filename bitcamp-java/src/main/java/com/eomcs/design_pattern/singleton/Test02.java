@@ -39,13 +39,11 @@ public class Test02 {
     // 인스턴스를 생성해주는 메서드를 통해 인스턴스를 얻는다.
     Car2 c2 = Car2.getInstance();
     Car2 c3 = Car2.getInstance();
-    Car2 c4 = Car2.getInstance();
-    Car2 c5 = Car2.getInstance();
     
-    System.out.println(c2 == c3);
-    System.out.println(c2 == c4);
-    System.out.println(c2 == c5);
-   
+    if (c2 != c3) 
+      System.out.println("다르다!");
+    else 
+      System.out.println("같다!");
   }
 }
 

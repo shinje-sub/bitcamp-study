@@ -6,20 +6,20 @@ public class Exam0230 {
 
     Integer obj1 = new Integer(100); // Heap에 인스턴스 생성
     Integer obj2 = new Integer(100); // Heap에 인스턴스 생성
-    System.out.println(obj1 == obj2);
+    System.out.println(obj1 == obj2); // false
     // 설명:
     // => new 연산자를 통해 Integer 객체를 생성하면 Heap에 인스턴스를 생성한다.
     // => 그래서 같은 값이더라도 다른 인스턴스가 생성된다.
 
-    // auto-boxing으로 Wrapper 객체를 생성할 경우,
+    // auto-box 으로 Wrapper 객체를 생성할 경우,
     Integer obj3 = 100; // Integer.valueOf(100)
-    Integer obj4 = 100; // Integer.valueOf(100)
-    System.out.println(obj3 == obj4);
+    Integer obj4 = 100; // Integer.valueOf(100);
+    System.out.println(obj3 == obj4); // true
     // 설명:
     // => 정수 값이 -128 ~ 127 범위일 경우
     // auto-boxing으로 생성된 객체는 내부 보관소(cache)에 저장된다.
     // => 메모리를 효율적으로 사용하기 위해
-    // 같은 값을 가지는 Integer 객체가 여러 개 존재해야 할 필요가 없다.
+    // 같은 값을 가지는 Integer 객체가 여러 개 존재하지 않게 한다.
     // => 그래서 가능한 이 방법을 사용해야 한다.
     //
 
@@ -40,8 +40,7 @@ public class Exam0230 {
     Integer obj9 = 128;
     System.out.println(obj7 == obj8); // false
     System.out.println(obj7 == obj9); // false
-    System.out.println(obj8 == obj9); // flase
-
+    System.out.println(obj8 == obj9); // false
   }
 }
 

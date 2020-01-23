@@ -13,7 +13,7 @@ public class Exam0440 {
   static int m2(int value) {
     return value + 100;
   }
- 
+
   static int m3(int value) {
     return value + 200;
   }

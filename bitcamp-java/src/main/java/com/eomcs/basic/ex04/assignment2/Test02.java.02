@@ -18,15 +18,23 @@ public class Test02 {
     // 사용자로부터 입력 받기
     Scanner keyScan = new Scanner(System.in);
     
-    System.out.println("가위,바위,보? 보");
+    System.out.print("가위,바위,보? ");
     String response = keyScan.nextLine();
-    System.out.printf("사용자: %s\n" , response);
-    System.out.println(Math.random());
+    System.out.printf("사용자: %s\n", response);
     
     System.out.println("컴퓨터: 가위");
-    System.out.println("=>당신이 졌습니다.");
- 
+    System.out.println("=> 당신이 졌습니다.");
+    
     keyScan.close();
   }
-
 }
+
+
+
+
+
+
+
+
+
+

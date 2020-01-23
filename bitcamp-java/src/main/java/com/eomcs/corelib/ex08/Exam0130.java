@@ -19,7 +19,6 @@ public class Exam0130 {
       return "MyKey [major=" + major + ", no=" + no + "]";
     }
 
-
     @Override
     public boolean equals(Object obj) {
       if (this == obj)
@@ -67,15 +66,16 @@ public class Exam0130 {
     System.out.println(map.get(k4));
     System.out.println(map.get(k5));
 
-    MyKey k6 = new MyKey("컴공", 3); // k3와 같은 값을 갖는다.
+    MyKey k6 = new MyKey("컴공", 3);
+    // k3와 같은 값을 갖는다.
     // 하지만 인스턴스는 다르다!
 
     System.out.println(k3 == k6);
     System.out.printf("equals(): %b\n", k3.equals(k6));
     System.out.printf("hashCode(): %d, %d\n", k3.hashCode(), k6.hashCode());
-    System.out.println("-----------------------------");
+    System.out.println("-----------------------------------");
 
-    // equals()의 리턴 값이 true()라고 해서 같은 key로 간주하지 않는다.
+    // equals()의 리턴 값이 true라고 해서 같은 key로 간주하지 않는다.
     System.out.println(map.get(k6));
   }
 

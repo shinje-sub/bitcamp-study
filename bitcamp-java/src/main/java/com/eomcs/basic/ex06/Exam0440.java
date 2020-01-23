@@ -24,7 +24,15 @@ public class Exam0440 {
 
     // for 문에 컬렉션도 적용할 수 있다.
     // for (변수 선언 : 컬렉션객체) 문장;
-    for (Object value : list)  // list를 사용하면 Object 변수를 사용해야 한다.
+    for (Object value : list) 
       System.out.println(value);
   }
 }
+
+
+
+
+
+
+
+

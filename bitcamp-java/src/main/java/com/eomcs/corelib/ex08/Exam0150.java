@@ -79,11 +79,10 @@ public class Exam0150 {
     // k3와 같은 값을 갖는다.
     // 하지만 인스턴스는 다르다!
 
-
     System.out.println(k3 == k6);
     System.out.printf("equals(): %b\n", k3.equals(k6));
     System.out.printf("hashCode(): %d, %d\n", k3.hashCode(), k6.hashCode());
-    System.out.println("-----------------------------");
+    System.out.println("-----------------------------------");
 
     System.out.println(map.get(k6));
     // k3와 k6는 인스턴스가 다르더라도

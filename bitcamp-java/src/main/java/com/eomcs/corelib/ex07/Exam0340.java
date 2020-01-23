@@ -1,4 +1,4 @@
-// HashSet과 사용자 정의 데이터 타입 - hashCode()와 equals() 오버라이딩
+// HashSet과 사용자 정의 데이터 타입 - hashCode()와 equals() 모두 오버라이딩
 package com.eomcs.corelib.ex07;
 
 import java.util.HashSet;
@@ -49,7 +49,6 @@ public class Exam0340 {
     }
 
 
-
   }
 
   public static void main(String[] args) {
@@ -61,7 +60,7 @@ public class Exam0340 {
 
     System.out.printf("equals(): %b\n", v3.equals(v5));
     System.out.printf("hashCode(): %d, %d\n", v3.hashCode(), v5.hashCode());
-    System.out.println("-----------------------------");
+    System.out.println("-----------------------------------");
 
     HashSet set = new HashSet();
     set.add(v1);

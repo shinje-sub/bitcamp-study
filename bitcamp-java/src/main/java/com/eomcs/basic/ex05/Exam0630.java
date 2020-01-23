@@ -5,12 +5,11 @@ package com.eomcs.basic.ex05;
 public class Exam0630 {
   public static void main(String[] args) {
     int i = 7;
-
+    
     i = i++;
-    // 위문자은 다음과 같이 실행된다.
-    //
+    // 위 문장은 다음과 같이 실행된다.  
     //int temp = i;
-    //i = i +1;
+    //i = i + 1;
     //i = temp;
     //
     // 1) i 값을 그자리에 놓는다.

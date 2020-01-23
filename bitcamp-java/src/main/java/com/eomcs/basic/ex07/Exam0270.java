@@ -9,7 +9,7 @@ public class Exam0270 {
   //    예) m1("aaa", "bbb", "aaa@test.com", "bbb@test.com");
   //    어느 값이 names 배열에 들어가고, 어느 값이 emails 배열에 들어가는가?
   //static void m1(String... names, String... emails) {} // 컴파일 오류!
-  //static void m1(String... names, int a, String... names2) {}// 컴파일 오류!
+  //static void m1(String... names, int a, String... emails) {}// 컴파일 오류!
   // 위의 메서드는 값을 구분할 수 있을 것 같은데?
   // => 사람들은 쉽게 구분할 수 있다. 
   //    그러나 컴파일러가 이런 상황을 구분하려면 굉장히 복잡해진다.
@@ -40,3 +40,12 @@ public class Exam0270 {
 // - 메서드에 가변 파라미터는 한 개만 사용할 수 있다.
 // - 가변 파라미터는 반드시 맨 뒤에 와야 한다.
 // - 그 이유는 복잡한 사용을 막기 위해!
+
+
+
+
+
+
+
+
+

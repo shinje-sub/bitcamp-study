@@ -8,12 +8,13 @@ public class Exam0141 {
 
     String x1 = (String) obj; // x1 = 100
 
-    // obj에 대해 toString을 호출할 때
+    // obj에 대해 toString()을 호출할 때,
     // => obj가 가리키는 것은 실제 String 객체이다.
     // => 이런 경우 toString()을 호출할 때 String 클래스에서부터 찾는다.
     // => 만약 String 클래스가 toString()을 오버라이딩 했다면,
     // 이 오버라이딩 메서드를 호출할 것이다.
     String x2 = obj.toString(); // x2 = 100
+
     // => 레퍼런스를 통해 메서드를 호출할 때
     // 항상 원래 객체의 클래스부터 메서드를 찾아 올라간다.
     // => 따라서 obj가 가리키는 객체의 클래스가 String이기 때문에

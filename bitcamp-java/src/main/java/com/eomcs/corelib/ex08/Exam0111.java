@@ -18,11 +18,11 @@ public class Exam0111 {
     // => 물론 어떤 객체라도 key로 사용할 수 있다.
     map.put(new Integer(100), v1);
     map.put(Integer.valueOf(200), v2);
-    map.put(300, v3); // auto boxing
-    map.put("s04", v4);
+    map.put(300, v3); // auto-boxing
+    map.put(400, v4);
 
     // 이전에 저장할 때 사용한 같은 키로 다른 값을 저장하면 기존 값을 덮어쓴다.
-    map.put("s04", v5);
+    map.put(400, v5);
 
     System.out.println(map.get(100));
     System.out.println(map.get(200));

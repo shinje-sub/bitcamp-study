@@ -1,6 +1,6 @@
 package com.eomcs.basic.ex07;
 
-//# 메서드 : call by value // 메서드 호출할때 값 넘김 (프리머트 타입)
+//# 메서드 : call by value
 //
 public class Exam0310 {
 

@@ -18,7 +18,7 @@ public class Exam0230 {
     
     // 메서드를 리턴한 후에 작업을 수행할 수 없다.
     //int a; // 컴파일 오류!
-    //System.out.println(); // 컴파일 오류!
+    //System.out.println("NO!"); // 컴파일 오류!
   }
 
   public static void main(String[] args) {

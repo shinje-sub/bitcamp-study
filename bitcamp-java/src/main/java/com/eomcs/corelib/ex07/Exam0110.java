@@ -39,10 +39,11 @@ public class Exam0110 {
     // hashCode()의 리턴 값이 같고 두 객체에 대해 equals()를 호출하면
     // true가 리턴되기 때문에 같은 값으로 간주하여 중복 저장하지 않는다.
     // 결론! v5는 추가되지 않는다.
-    System.out.println(v3 == v5);
-    System.out.println(v3.equals(v5));
+    System.out.println(v3 == v5); // false
+    System.out.println(v3.equals(v5)); // true
     System.out.println(v3.hashCode() + "," + v5.hashCode());
-    System.out.println("---------------");
+    System.out.println("---------------------");
+
     print(set);
   }
 

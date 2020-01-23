@@ -1,7 +1,6 @@
 // 람다(lambda) 문법
 package com.eomcs.oop.ex12;
 
-// 람다(lambda) 문법
 public class Exam0410 {
 
   static interface Interest {
@@ -27,8 +26,12 @@ public class Exam0410 {
 
   public static void main(String[] args) {
     Interest i1 = getInterset(1.5);
-    System.out.println(i1.compute(10_0000_0000));
+    System.out.printf("합계 : %.1f\n", i1.compute(10_0000_0000));
+
+    Interest i2 = getInterset(2.5);
+    System.out.printf("합계 : %.1f\n", i2.compute(10_0000_0000));
   }
+
 }
 
 

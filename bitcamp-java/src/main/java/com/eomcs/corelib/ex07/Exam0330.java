@@ -38,7 +38,7 @@ public class Exam0330 {
     Member v5 = new Member("유관순", 16);
 
     System.out.printf("hashCode(): %d, %d\n", v3.hashCode(), v5.hashCode());
-    System.out.println("-----------------------------");
+    System.out.println("-----------------------------------");
 
     HashSet set = new HashSet();
     set.add(v1);

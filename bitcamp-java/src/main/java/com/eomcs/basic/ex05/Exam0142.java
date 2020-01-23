@@ -1,26 +1,41 @@
 package com.eomcs.basic.ex05;
 
-// 산술 연산자 : 연산의 결과 타입  
+//# 산술 연산자 : 연산의 결과 타입
+//
 public class Exam0142 {
   public static void main(String[] args) {
-    int i = 5;
-    int j = 2;
-    float r = i / j; // int와 int의 연산 결과는 항상 int이다.
-    // 따라서 r 변수에 넣기 전에 
-    // 이미 결과는 정수 2가 된다.
-    // 정수 2를 float 변수에 넣으면 
-    // 출력할 때 2.0이 된다.
-    System.out.println(r);
+    // int와 int의 연산 결과는 int이다.
+    // 다른 타입이 될 수 없다.
+    // => 0111 1111 1111 1111 1111 1111 1111 1111 = Integer.MAX_VALUE
+    //
+    int x = Integer.MAX_VALUE; // 0x7fffffff = 약 +21억
+    int y = Integer.MAX_VALUE; // 0x7fffffff = 약 +21억
+    
+    int r1 = x + y; // 0x7fffffff + 0x7fffffff = 0xfffffffe = -2
+    //   0111 1111 1111 1111 1111 1111 1111 1111(x)
+    // + 0111 1111 1111 1111 1111 1111 1111 1111(y)
+    // ---------------------------------------------
+    //   1111 1111 1111 1111 1111 1111 1111 1110(r1)
+    System.out.println(r1); // int(4byte) + int(4byte) = int(4byte)
+    // => int와 int의 연산 결과가 int의 범위를 넘어가면 
+    //    의도한 결과가 나오지 않을 수 있다.
+    
+    // 그래서 int와 int의 연산 결과를 더 큰 메모리에 담는다면 해결될까?
+    long r2 = x + y;  // 0x7fffffff + 0x7fffffff = 0xfffffffe = -2
+    System.out.println(r2); // int(4byte) + int(4byte) = int(4byte)
+    // 해결 안됨!
+    // r2의 출력 결과를 보면 42억이 출력되는 것이 아니라 -2가 출력된다.
+    // 이유?
+    // - int 와 int의 연산 결과는 피연산자와 같은 4바이트 int가 된다.
+    // - 그래서 8바이트 long 변수에 저장하기 전에 
+    // - 이미 그 결과는 int 값으로 -2가 되기 때문에 
+    // - long 변수의 값이 -2가 된다.
 
-    // 해결책!
-    // - 변수에 들어 있는 값을 다른 타입으로 바꿔라.
-    //   "형변환(type conversion=type casting)"하라!
-    r = (float)i / (float)j; // float / float = float
-    // i / j의 값은 2.5가 되고
-    // r에 저장되는 것은 2.5이다.
-    System.out.println(r);                         
-
-
+    // 진정한 해결책?
+    // - int와 int 연산 결과가 int 크기를 넘어갈 것 같으면 
+    //   형변환하여 계산하라!
+    r2 = (long)x + (long)y;
+    System.out.println(r2);
   }
 }
 

@@ -1,4 +1,4 @@
-// HashSet과 사용자 정의 데이터 타입 - equals() 오버라이딩
+// HashSet과 사용자 정의 데이터 타입 - equals()만 오버라이딩
 package com.eomcs.corelib.ex07;
 
 import java.util.HashSet;
@@ -50,7 +50,7 @@ public class Exam0320 {
     Member v5 = new Member("유관순", 16);
 
     System.out.printf("equals(): %b\n", v3.equals(v5));
-    System.out.println("-----------------------------");
+    System.out.println("-----------------------------------");
 
     HashSet set = new HashSet();
     set.add(v1);

@@ -27,7 +27,7 @@ public class Exam0223 {
     Object obj;
     obj = member; // 다형적 변수 문법에 따라 상위 클래스의 레퍼런스에 저장할 수 있다.
     obj = str; // 다형적 변수 문법에 따라 상위 클래스의 레퍼런스에 저장할 수 있다.
-    obj = i; // auto-boxing 규칙에 따라 => Integer.valueOf(i) 문장으로 변환된다.
+    obj = i; // auto-boxing 규칙에 따라 Integer.valueOf(i) 문장으로 변환한다.
 
     Integer obj2 = (Integer) obj;
 
