@@ -1,4 +1,4 @@
-# 28_3 - 파일 포맷으로 JSON 도입하기
+# 28_4 - 파일 포맷으로 JSON 도입하기
 
 ## 학습 목표
 
@@ -34,24 +34,28 @@
   - 'Referenced Libraries' 노드에서 gson 라이브러리 파일이 추가된 것을 확인한다.
   
   
-  ### 훈련 2: 게시물 데이터를 저장하고 읽을 때 JSON 형식을 사용해라.
+### 훈련 2: 게시물 데이터를 저장하고 읽을 때 JSON 형식을 사용해라.
   
   -App.java
     - saveBoardData()를 변경한다.
     - loadBoardData()를 변경한다.
     
     
-  ### 훈련 3: 회원 데이터를 저장하고 읽을 때 JSON 형식을 사용해라.
+### 훈련 3: 회원 데이터를 저장하고 읽을 때 JSON 형식을 사용해라.
   
   -App.java
     - saveMemberData()를 변경한다.
     - loadmemberData()를 변경한다.
     
     
-  ### 훈련 4: 수업 데이터를 저장하고 읽을 때 JSON 형식을 사용해라.
+### 훈련 4: 수업 데이터를 저장하고 읽을 때 JSON 형식을 사용해라.
   
   -App.java
     - saveLessonData()를 변경한다.
     - loadLessonData()를 변경한다.
     
+### 훈련 5: Arrays 의 메서드를 활용하여 배열을 List 객체로 만들어라.
+
+-App.java
+ - 해당 부분의 코드를 변경한다.
     
