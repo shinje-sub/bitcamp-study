@@ -6,10 +6,10 @@ import java.io.ByteArrayInputStream;
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
-    byte[] buf = {0x0b, 0x41, 0x42, 
-        (byte)0xea, (byte)0xb0, (byte)0x80, 
-        (byte)0xea, (byte)0xb0, (byte)0x81, 
-        (byte)0xea, (byte)0xb0, (byte)0x84, 
+    byte[] buf = {0x0b,/*문자열 표시*/ 0x41, 0x42, 
+        (byte)0xea, (byte)0xb0, (byte)0x80, // 가
+        (byte)0xea, (byte)0xb0, (byte)0x81, // 각
+        (byte)0xea, (byte)0xb0, (byte)0x84, // 간
         0x00, 0x00, 0x00, 0x1b, 0x01};
 
     // 바이트 배열에서 데이터를 읽는 도구
@@ -31,7 +31,7 @@ public class Exam0110 {
 
     while (true) {
       b = in.read();
-      if (b == -1)
+      if (b == -1) // 리턴값 b 를 -1이랑 비교한다.
         break;
       System.out.printf("%x ", b);
     }

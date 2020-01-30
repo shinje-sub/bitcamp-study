@@ -20,10 +20,9 @@ public class Exam0310 {
       }
     }
 
-
     testPlayer(new MyPlayer());
-  }
 
+  }
 }
 
 

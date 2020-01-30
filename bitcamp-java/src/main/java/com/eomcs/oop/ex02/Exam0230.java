@@ -1,37 +1,57 @@
 package com.eomcs.oop.ex02;
 
-//# 메서드 분류 - 클래스 변수의 단점
+// # 관련된 기능(메서드)을 묶어 분류하기 - 클래스 메서드와 클래스 변수
 //
 public class Exam0230 {
+
+  static class Calculator {
+    // ## 클래스 변수 사용
+    // - 메서드들의 작업 결과를 보관할 때 사용할 변수이다.
+    // - 변수 선언에 static을 붙이다.
+    // - "스태틱 변수"라고도 부른다.
+    // - 클래스 변수는 new 명령으로 생성하지 않는다.
+    // - 클래스가 메모리에 로딩될 때 자동으로 "Method Area" 영역에 생성된다.
+    static int result = 0;
+
+    static void plus(int value) {
+      // 메서드 작업 결과는 클래스 변수에 보관한다.
+      result += value; // result = result + value
+    }
+
+    static void minus(int value) {
+      result -= value; // result = result - value
+    }
+
+    static void multiple(int value) {
+      result *= value; // result = result * value
+    }
+
+    static void divide(int value) {
+      result /= value; // result = result / value
+    }
+
+    // 인스턴스를 사용하지 않는 메서드라면 그냥 클래스 메서드로 두어라.
+    static int abs(int a) {
+      return a >= 0 ? a : a * -1;
+    }
+  }
+
   public static void main(String[] args) {
-    // 클래스 변수는 오직 한 개만 존재하기 때문에 
-    // 여러 개의 작업을 분리하여 진행할 수 없다.
 
-    // 다음 두 개의 식을 분리하여 계산해 보자!
-    // 식1) 2 + 3 - 1 * 7 / 3 = ?
-    // 식2) 3 * 2 + 7 / 4 - 5 = ?
-    // => 연산자 우선 순위를 고려하지 않고 순서대로 계산하라!
+    // 다음 식을 연산자 우선 순위를 고려하지 않고 순서대로 계산하라!
+    // 2 + 3 - 1 * 7 / 3 = ?
 
-    // Calculator2에서는 계산 결과를 저장하는 변수가 한개여서 
-    // 식1 과 식2를 개별적으로 동시에 계산할 수 없다.
-    Calculator2.plus(2);        // + 2
-    Calculator2.plus(3);        // + 3
+    // 계산 결과를 보관할 변수는 더이상 필요가 없다.
+    // Calculator 내부에서 계산 결과를 관리한다.
+    // int result = 0;
 
-    Calculator2.plus(3);        // + 2 + 3
-    Calculator2.multiple(2);    // + 3 * 2
+    Calculator.plus(2);
+    Calculator.plus(3);
+    Calculator.minus(1);
+    Calculator.multiple(7);
+    Calculator.divide(3);
 
-    Calculator2.minus(1);       // + 2 + 3 - 1
-    Calculator2.plus(7);        // + 3 * 2 + 7
-
-    Calculator2.multiple(7);    // + 2 + 3 - 1 * 7
-    Calculator2.divide(4);       // + 3 * 2 + 7 / 4 
-
-    Calculator2.divide(3);      // + 2 + 3 - 1 * 7 / 3 = ?
-    Calculator2.minus(5);       // + 3 * 2 + 7 / 4 - 5 = ?
-
-    // Calculator2의 result 변수는 한 개이기 때문에
-    // 결과를 출력하면 식1과 식2가 모두 계산된 결과가 출력될 것이다.
-    System.out.printf("result = %d\n", Calculator2.result);  
+    System.out.printf("result = %d\n", Calculator.result);
   }
 }
 

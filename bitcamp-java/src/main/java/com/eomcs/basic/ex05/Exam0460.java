@@ -4,50 +4,28 @@ package com.eomcs.basic.ex05;
 //
 public class Exam0460 {
   public static void main(String[] args) {
-    // 다음 변수의 값을 조사하여 개발자가 
-    // 어떤 프로그래밍 언어를 사용할 수 있는 지 출력하라!
-    // => 각 비트의 해당하는 프로그래밍 언어는 다음 순서를 따른다.
-    //    c, cpp, java, js, python, php, html, css
+    // 한 개의 정수 값에 여러 개의 정보를 저장하기
+    // => 비트의 1 또는 0을 이용하여 정보를 표현할 수 있다.
     //
-    //    
-    int lang = 0b11100011;
+    // 개발자가 프로그래밍 가능한 언어를 int 값으로 표현해 보자!
+    final int JAVA          = 0x0001; // 0000 0000 0000 0001
+    final int C             = 0x0002; // 0000 0000 0000 0010
+    final int CPP           = 0x0004; // 0000 0000 0000 0100
+    final int PYTHON        = 0x0008; // 0000 0000 0000 1000
+    final int PHP           = 0x0010; // 0000 0000 0001 0000
+    final int KOTLIN        = 0x0020; // 0000 0000 0010 0000
+    final int GROOVY        = 0x0040; // 0000 0000 0100 0000
+    final int JAVASCRIPT    = 0x0080; // 0000 0000 1000 0000
+    final int TYPESCRIPT    = 0x0100; // 0000 0001 0000 0000
+    final int GO            = 0x0200; // 0000 0010 0000 0000
+    final int SQL           = 0x0300; // 0000 0100 0000 0000
+    final int R             = 0x4000; // 0000 1000 0000 0000
 
+    // Java와 C, C++, JavaScript를 할 줄 아는 개발자의 정보를 설정하라!
+    int d1 = JAVA | C | CPP | JAVASCRIPT; // 0000 0000 1000 0111
+    int d2 = 0x0087;
 
-    // lang 변수에 들어 있는 각 비트 값을 조사하여 
-    // 1이면 그 변수에 해당하는 프로그래밍 이름을 출력한다.
-    // => if 조건문, &, == 연산자를 활용하라!
-    // => 실행 결과
-    //    c cpp java html css 
-    //
-    // => 공식
-    //    (값이 들어 있는 변수) & (특정 언어를 표현한 비트 값) 
-    //    => & 연산의 결과와 (특정 언어를 표현한 비트 값)이 같은지 비교한다.
-    //    
-    if ((lang & 0x80) == 0x80) System.out.print("c ");
-    //   11100011
-    // & 10000000
-    // -----------
-    //   10000000
-    
-    if ((lang & 0x40) > 0) System.out.print("cpp ");
-    //   11100011
-    // & 01000000
-    // -----------
-    //   01000000
-    
-    if ((lang & 0x20) > 0) System.out.print("java ");
-    if ((lang & 0x10) > 0) System.out.print("js ");
-    //   11100011
-    // & 00010000
-    // -----------
-    //   00000000
-    
-    if ((lang & 8) > 0) System.out.print("python ");
-    if ((lang & 4) > 0) System.out.print("php ");
-    if ((lang & 2) > 0) System.out.print("html ");
-    if ((lang & 1) > 0) System.out.print("css ");
-    System.out.println(); // 줄바꿈
-
-
+    System.out.println(d1);
+    System.out.println(d2);
   }
 }

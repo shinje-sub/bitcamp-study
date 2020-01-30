@@ -23,10 +23,11 @@ public class Exam0720 {
       }
     };
 
-
     List list = f1.create();
 
     System.out.println(list instanceof ArrayList);
     System.out.println(list.getClass().getName());
   }
 }
+
+

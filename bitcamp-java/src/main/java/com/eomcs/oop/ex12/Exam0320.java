@@ -8,13 +8,12 @@ public class Exam0320 {
   }
 
   static void test(Calculator c) {
-    System.out.printf("결과 : %d\n", c.compute(200, 100));
+    System.out.println(c.compute(100, 200));
   }
 
   public static void main(String[] args) {
     // 파라미터와 리턴 값이 있는 메서드 구현하기
     test((a, b) -> a + b);
-    test((a, b) -> a * b);
 
   }
 

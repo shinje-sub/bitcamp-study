@@ -1,7 +1,9 @@
 // 메서드 레퍼런스 - 인스턴스 메서드 레퍼런스 구현 원리
 package com.eomcs.oop.ex12;
 
+
 public class Exam0620 {
+
   static class Calculator {
     double rate;
 
@@ -27,8 +29,10 @@ public class Exam0620 {
   }
 
   public static void main(String[] args) {
+
     Calculator 보통예금 = new Calculator(0.5);
-    // 스태틱 메서드 레퍼른스로 Calculator 구현체를 만드는 방법
+
+    // 인스턴스 메서드 레퍼런스로 Calculator 구현체를 만드는 방법
     //
     // Iterest i1 = 보통예금::year;
 
@@ -45,5 +49,6 @@ public class Exam0620 {
 
     System.out.printf("년 이자: %.1f\n", i1.compute(10_0000_0000));
   }
-
 }
+
+

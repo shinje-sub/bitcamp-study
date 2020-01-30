@@ -8,13 +8,19 @@ public class Exam0321 {
   }
 
   static void test(Calculator c) {
-    System.out.printf("결과 : %d\n", c.compute(200, 100));
+    System.out.println(c.compute(100, 200));
   }
 
   public static void main(String[] args) {
-    test((a, b) -> a + b);
-    test((a, b) -> a * b);
+    // 익명 클래스로 정의한다면?
+    test(new Calculator() {
+      @Override
+      public int compute(int a, int b) {
+        return a + b;
+      }
+    });
   }
+
 }
 
 
