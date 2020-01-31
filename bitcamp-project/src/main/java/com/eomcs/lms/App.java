@@ -1,5 +1,7 @@
 package com.eomcs.lms;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -145,23 +147,8 @@ public class App {
   private static void loadLessonData() {
     File file = new File("./lesson.json");
 
-    try (FileReader in = new FileReader(file)) {
-      // 방법1) JSON ===> List
-      // Gson json 도구 = new Gson();
-      // Lesson[] 배열 = json도구.fromJson(in, Lesson[].class);
-      // for (Lesson 수업 : 배열) {
-      // lessonList.add(수업);
-      // }
-
-      // 방법2) JSON ===> List
-      // Gson json 도구 = new Gson();
-      // Lesson[] 배열 = json도구.fromJson(in, Lesson[].class);
-      // List<Lesson> 읽기전용List구현체 = Arrays.asList[배열);
-      // lessonList.addAll(읽기전용List구현체);
-
-      // 위의 코드를 간략하게 설명한것이다.
+    try (BufferedReader in = new BufferedReader(new FileReader(file))) {
       lessonList.addAll(Arrays.asList(new Gson().fromJson(in, Lesson[].class)));
-
       System.out.printf("총 %d 개의 수업 데이터를 로딩했습니다.\n", lessonList.size());
 
     } catch (IOException e) {
@@ -172,7 +159,7 @@ public class App {
   private static void saveLessonData() {
     File file = new File("./lesson.json");
 
-    try (FileWriter out = new FileWriter(file)) {
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       out.write(new Gson().toJson(lessonList));
       System.out.printf("총 %d 개의 수업 데이터를 저장했습니다.\n", lessonList.size());
 
@@ -185,7 +172,7 @@ public class App {
     File file = new File("./member.json");
 
 
-    try (FileReader in = new FileReader(file)) {
+    try (BufferedReader in = new BufferedReader(new FileReader(file))) {
       memberList.addAll(Arrays.asList(new Gson().fromJson(in, Member[].class)));
       System.out.printf("총 %d 개의 회원 데이터를 로딩했습니다.\n", memberList.size());
 
@@ -197,7 +184,7 @@ public class App {
   private static void saveMemberData() {
     File file = new File("./member.json");
 
-    try (FileWriter out = new FileWriter(file)) {
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       out.write(new Gson().toJson(memberList));
       System.out.printf("총 %d 개의 회원 데이터를 저장했습니다.\n", memberList.size());
 
@@ -211,7 +198,7 @@ public class App {
     File file = new File("./board.json");
 
 
-    try (FileReader in = new FileReader(file)) {
+    try (BufferedReader in = new BufferedReader(new FileReader(file))) {
 
       boardList.addAll(Arrays.asList(new Gson().fromJson(in, Board[].class)));
       System.out.printf("총 %d 개의 게시물 데이터를 로딩했습니다.\n", boardList.size());
@@ -226,7 +213,7 @@ public class App {
     File file = new File("./board.json");
 
 
-    try (FileWriter out = new FileWriter(file)) {
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       out.write(new Gson().toJson(boardList));
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", boardList.size());
 

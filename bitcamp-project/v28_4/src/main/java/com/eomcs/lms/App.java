@@ -1,15 +1,19 @@
 package com.eomcs.lms;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
@@ -43,12 +47,13 @@ public class App {
   static Deque<String> commandStack = new ArrayDeque<>();
   static Queue<String> commandQueue = new LinkedList<>();
 
-  static ArrayList<Lesson> lessonList = new ArrayList<>();
-  static LinkedList<Member> memberList = new LinkedList<>();
-  static LinkedList<Board> boardList = new LinkedList<>();
+  static List<Lesson> lessonList = new ArrayList<>();
+  static List<Member> memberList = new ArrayList<>();
+  static List<Board> boardList = new ArrayList<>();
 
   public static void main(String[] args) {
 
+    // 파일에서 데이터 로딩
     loadLessonData();
     loadMemberData();
     loadBoardData();
@@ -142,148 +147,79 @@ public class App {
   private static void loadLessonData() {
     File file = new File("./lesson.json");
 
-    FileReader in = null;
-
-    try {
-      in = new FileReader(file);
-
-      Gson gson = new Gson();
-      Lesson[] lessons = gson.fromJson(in, Lesson[].class);
-      for (Lesson lesson : lessons) {
-        lessonList.add(lesson);
-      }
+    try (BufferedReader in = new BufferedReader(new FileReader(file))) {
+      lessonList.addAll(Arrays.asList(new Gson().fromJson(in, Lesson[].class)));
       System.out.printf("총 %d 개의 수업 데이터를 로딩했습니다.\n", lessonList.size());
 
-    } catch (Exception e) {
+    } catch (IOException e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
-    } finally {
-      try {
-      } catch (Exception e) {
-      }
-      try {
-        in.close();
-      } catch (Exception e) {
-      }
     }
   }
 
   private static void saveLessonData() {
     File file = new File("./lesson.json");
 
-    FileWriter out = null;
-
-    try {
-      out = new FileWriter(file);
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       out.write(new Gson().toJson(lessonList));
       System.out.printf("총 %d 개의 수업 데이터를 저장했습니다.\n", lessonList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
-
-    } finally {
-      try {
-        out.close();
-      } catch (IOException e) {
-      }
     }
   }
 
   private static void loadMemberData() {
     File file = new File("./member.json");
 
-    FileReader in = null;
 
-    try {
-      in = new FileReader(file);
-
-      Gson gson = new Gson();
-      Member[] members = gson.fromJson(in, Member[].class);
-      for (Member member : members) {
-        memberList.add(member);
-      }
+    try (BufferedReader in = new BufferedReader(new FileReader(file))) {
+      memberList.addAll(Arrays.asList(new Gson().fromJson(in, Member[].class)));
       System.out.printf("총 %d 개의 회원 데이터를 로딩했습니다.\n", memberList.size());
 
-    } catch (Exception e) {
+    } catch (IOException e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
-    } finally {
-      try {
-      } catch (Exception e) {
-      }
-      try {
-        in.close();
-      } catch (Exception e) {
-      }
     }
   }
 
   private static void saveMemberData() {
     File file = new File("./member.json");
 
-    FileWriter out = null;
-
-    try {
-      out = new FileWriter(file);
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       out.write(new Gson().toJson(memberList));
       System.out.printf("총 %d 개의 회원 데이터를 저장했습니다.\n", memberList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
 
-    } finally {
-      try {
-        out.close();
-      } catch (IOException e) {
-      }
     }
   }
 
   private static void loadBoardData() {
     File file = new File("./board.json");
 
-    FileReader in = null;
 
+    try (BufferedReader in = new BufferedReader(new FileReader(file))) {
 
-    try {
-      in = new FileReader(file);
-
-      Gson gson = new Gson();
-      Board[] boards = gson.fromJson(in, Board[].class);
-      for (Board board : boards) {
-        boardList.add(board);
-      }
+      boardList.addAll(Arrays.asList(new Gson().fromJson(in, Board[].class)));
       System.out.printf("총 %d 개의 게시물 데이터를 로딩했습니다.\n", boardList.size());
 
-    } catch (Exception e) {
+    } catch (IOException e) {
       System.out.println("파일 읽기 중 오류 발생! - " + e.getMessage());
-    } finally {
-      try {
-      } catch (Exception e) {
-      }
-      try {
-        in.close();
-      } catch (Exception e) {
-      }
+
     }
   }
 
   private static void saveBoardData() {
     File file = new File("./board.json");
 
-    FileWriter out = null;
 
-    try {
-      out = new FileWriter(file);
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       out.write(new Gson().toJson(boardList));
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", boardList.size());
 
     } catch (IOException e) {
       System.out.println("파일 쓰기 중 오류 발생! - " + e.getMessage());
 
-    } finally {
-      try {
-        out.close();
-      } catch (IOException e) {
-      }
     }
   }
 }
