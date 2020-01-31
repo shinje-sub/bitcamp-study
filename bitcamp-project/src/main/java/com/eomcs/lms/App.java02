@@ -12,11 +12,14 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Set;
+import com.eomcs.lms.context.ApplicationContextListener;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.domain.Member;
@@ -51,7 +54,38 @@ public class App {
   List<Member> memberList = new ArrayList<>();
   List<Board> boardList = new ArrayList<>();
 
+  // 옵저버 목록을 관리할 객체 준비
+  // - 같은 인스턴스를 중복해서 등록하지 않도록 한다.
+  // - Set은 등록 순서를 따지지 않는다.
+  Set<ApplicationContextListener> listerers = new HashSet<>();
+
+  // 옵저버를 등록하는 메서드이다.
+  public void addApplicationContextListener(ApplicationContextListener listener) {
+    listerers.add(listener);
+  }
+
+  // 옵저버를 제거하는 메서드이다.
+  public void removeApplicationContextListener(ApplicationContextListener listener) {
+    listerers.remove(listener);
+  }
+
+  // 애플리케이션이 시작되면, 등록된 리스너에게 알린다.
+  private void notifyApplicationInitialized() {
+    for (ApplicationContextListener listener : listerers) {
+      listener.contextInitialzed();
+    }
+  }
+
+  // 애플리케이션이 종료되면, 등록된 리스너에게 알린다.
+  private void notifyApplicationDestroyed() {
+    for (ApplicationContextListener listener : listerers) {
+      listener.contextDestroyed();
+    }
+  }
+
   public void service() {
+
+    // 애플리케이션에 서비스가 시작되었음을 옵저버에게 알린다.
 
     // 파일에서 데이터 로딩
     loadLessonData();
@@ -126,6 +160,7 @@ public class App {
     saveMemberData();
     saveBoardData();
 
+    notifyApplicationDestroyed();
   } // service()
 
   private void printCommandHistory(Iterator<String> iterator) {
