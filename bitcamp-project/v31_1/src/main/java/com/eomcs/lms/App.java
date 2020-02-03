@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Map;
 import java.util.Set;
 import com.eomcs.lms.context.ApplicationContextListener;
 import com.eomcs.lms.domain.Board;
@@ -91,6 +92,7 @@ public class App {
     loadLessonData();
     loadMemberData();
     loadBoardData();
+    
     notifyApplicationInitialized();
 
     Prompt prompt = new Prompt(keyboard);
@@ -162,6 +164,7 @@ public class App {
     saveBoardData();
 
     notifyApplicationDestroyed();
+    
   } // service()
 
   private void printCommandHistory(Iterator<String> iterator) {

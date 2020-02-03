@@ -36,14 +36,7 @@ import com.eomcs.lms.handler.commputeCommand;
 import com.eomcs.lms.util.Prompt;
 
 public class App {
-  public static void main(String[] args) {
-    App app = new App();
 
-    // 애플리케이션의 상태 정보를 받을 옵저버를 등록한다.
-    app.addApplicationContextListener(new DataLoaderListener());
-
-    app.service();
-  }
 
   Scanner keyboard = new Scanner(System.in);
 
@@ -98,7 +91,6 @@ public class App {
 
     // 애플리케이션에 서비스가 시작되었음을 옵저버에게 알린다.
     // 즉 DataLoaderListener를 실행한다.
-
     notifyApplicationInitialized();
 
     // 옵저버의 실행이 끝났으면 DataLoaderListener 옵저버가 준비한
@@ -192,4 +184,13 @@ public class App {
     }
   }
 
+  public static void main(String[] args) {
+    App app = new App();
+
+    // 애플리케이션의 상태 정보를 받을 옵저버를 등록한다.
+    app.addApplicationContextListener(new DataLoaderListener());
+    app.addApplicationContextListener(new GreetinListener());
+
+    app.service();
+  }
 }
