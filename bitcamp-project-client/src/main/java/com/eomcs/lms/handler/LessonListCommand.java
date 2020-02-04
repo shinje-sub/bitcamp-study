@@ -29,7 +29,7 @@ public class LessonListCommand implements Command {
         System.out.println(in.readUTF());
         return;
       }
-
+ 
       List<Lesson> lessons = (List<Lesson>) in.readObject();
       for (Lesson l : lessons) {
         System.out.printf("%d, %s, %s ~ %s, %d\n", l.getNo(), l.getTitle(), l.getStartDate(),

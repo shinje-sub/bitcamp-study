@@ -2,6 +2,7 @@ package com.eomcs.lms.handler;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.util.Prompt;
 
@@ -58,7 +59,7 @@ public class LessonUpdateCommand implements Command {
       newLesson.setDayHours(prompt.inputInt(String.format("일수업시간(%s)? ", oldLesson.getDayHours()),
           oldLesson.getDayHours()));
 
-      if (oldLesson.equals(oldLesson)) {
+      if (newLesson.equals(oldLesson)) {
         System.out.println("수업 변경을 취소하였습니다.");
         return;
       }

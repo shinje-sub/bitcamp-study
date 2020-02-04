@@ -2,13 +2,14 @@ package com.eomcs.lms.handler;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
 import com.eomcs.lms.util.Prompt;
 
 // "/lesson/deleta 커멘드 사용
 public class LessonDeleteCommand implements Command {
 
+    ObjectOutputStream out;
   ObjectInputStream in;
-  ObjectOutputStream out;
 
   Prompt prompt;
 
