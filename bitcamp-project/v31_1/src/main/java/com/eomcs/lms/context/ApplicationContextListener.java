@@ -7,7 +7,7 @@ package com.eomcs.lms.context;
 //
 public interface ApplicationContextListener {
   // 애플리케이션이 시작될 때 호출된다.
-  void contextInitialzed();
+  void contextInitialized();
 
   // 애플리케이션이 종료되기 직전에 호출된다.
   void contextDestroyed();

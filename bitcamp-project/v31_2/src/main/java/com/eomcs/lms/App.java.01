@@ -51,6 +51,25 @@ public class App {
   List<Member> memberList = new ArrayList<>();
   List<Board> boardList = new ArrayList<>();
 
+ public void addApplicationContextListener(ApplicationContextListener listener) {
+    listeners.add(listener);
+  }
+
+  public void removeApplivationContextListener(ApplicationContextListener listener) {
+    listeners.remove(listener);
+  }
+
+  private void notifyApplicationInitialized() {
+    for (ApplicationContextListener listener : listeners) {
+      listener.contextInitialized();
+    }
+  }
+
+  private void notifyApplicationDestroyed() {
+    for (ApplicationContextListener listener : listeners) {
+      listener.contextDestroyed();
+    }
+  }
   public void service() {
 
     // 파일에서 데이터 로딩
@@ -235,6 +254,7 @@ public class App {
 
   public static void main(String[] args) {
     App app = new App();
+    app.addApplicationContextListener(new DataLoaderListener());
     app.service();
   }
 }

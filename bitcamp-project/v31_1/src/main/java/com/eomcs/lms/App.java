@@ -73,17 +73,17 @@ public class App {
   // 애플리케이션이 시작되면, 등록된 리스너에게 알린다.
   private void notifyApplicationInitialized() {
     for (ApplicationContextListener listener : listerers) {
-      listener.contextInitialzed();
+      listener.contextInitialized();
     }
   }
 
   // 애플리케이션이 종료되면, 등록된 리스너에게 알린다.
   private void notifyApplicationDestroyed() {
-    for (ApplicationContextListener listener : listerers) {
+    for (ApplicationContextListener listener : listeners) {
       listener.contextDestroyed();
     }
   }
-
+  
   public void service() {
 
     // 애플리케이션에 서비스가 시작되었음을 옵저버에게 알린다.

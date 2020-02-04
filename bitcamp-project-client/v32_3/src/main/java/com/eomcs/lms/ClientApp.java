@@ -83,6 +83,8 @@ public class ClientApp {
 
     ClientApp app = new ClientApp();
     app.service();
+    
+    
     /*
      * String serverAddr = null; int port = 0;
      * 
