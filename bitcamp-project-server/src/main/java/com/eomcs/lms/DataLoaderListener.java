@@ -2,9 +2,9 @@ package com.eomcs.lms;
 
 import java.util.Map;
 import com.eomcs.lms.context.ApplicationContextListener;
-import com.eomcs.lms.dao.BoardObjectFileDao;
 import com.eomcs.lms.dao.LessonObjectFileDao;
 import com.eomcs.lms.dao.MemberObjectFileDao;
+import com.eomcs.lms.dao.json.BoardJsonFileDao;
 
 // 애플리케이션이 시작되거나 종료될 때
 // 데이터를 로딩하고 저장하는 일을 한다.
@@ -17,7 +17,7 @@ public class DataLoaderListener implements ApplicationContextListener {
     System.out.println("데이터를 로딩합니다.");
 
     // 애플리케이션의 데이터를 처리할 객체를 준비한다.
-    BoardObjectFileDao boardDao = new BoardObjectFileDao("./board.ser2");
+    BoardJsonFileDao boardDao = new BoardJsonFileDao("./board.json");
     LessonObjectFileDao lessonDao = new LessonObjectFileDao("./lesson.ser2");
     MemberObjectFileDao memberDao = new MemberObjectFileDao("./member.ser2");
 
