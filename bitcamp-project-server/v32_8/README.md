@@ -18,6 +18,7 @@ h# 32_8 - DAO 클래스의 공통점을 뽑아 수퍼 클래스로 정의하기(
 - src/main/java/com/eomcs/lms/dao/BoardObjectFileDao.java 변경
 - src/main/java/com/eomcs/lms/dao/LessonObjectFileDao.java 변경
 - src/main/java/com/eomcs/lms/dao/MemberObjectFileDao.java 변경
+- src/main/java/com/eomcs/lms/ServerApp.java 변경
 
 ## 실습
 
