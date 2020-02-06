@@ -11,7 +11,7 @@
 - src/main/java/com/eomcs/lms/domain/Member.java 추가
 - src/main/java/com/eomcs/lms/domain/Lesson.java 추가
 - src/main/java/com/eomcs/lms/context 패키지 생성
-- src/main/java/com/eomcs/lms/domain/ApplicationContextListener.java 추가
+- src/main/java/com/eomcs/lms/context/ApplicationContextListener.java 추가
 - src/main/java/com/eomcs/lms/DataLoaderListener 추가
 - src/main/java/com/eomcs/lms/ServerApp.java 변경
 
