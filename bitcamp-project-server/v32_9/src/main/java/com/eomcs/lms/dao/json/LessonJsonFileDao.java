@@ -1,31 +1,31 @@
 package com.eomcs.lms.dao.json;
 
 import java.util.List;
-import com.eomcs.lms.domain.Board;
+import com.eomcs.lms.domain.Lesson;
 
-public class BoardJsonFileDao extends AbstractJsonFileDao<Board> {
+public class LessonJsonFileDao extends AbstractJsonFileDao<Lesson> {
 
-  public BoardJsonFileDao(String filename) {
+  public LessonJsonFileDao(String filename) {
     super(filename);
   }
 
   // 서블릿 객체들이 데이터를 다룰 때 사용할 메서드를 정의한다.
-  public int insert(Board board) throws Exception {
+  public int insert(Lesson lesson) throws Exception {
 
-    if (indexOf(board.getNo()) > -1) { // 같은 번호의 게시물이 있다면,
+    if (indexOf(lesson.getNo()) > -1) { // 같은 번호의 수업이 있다면,
       return 0;
     }
 
-    list.add(board); // 새 게시물을 등록한다.
+    list.add(lesson); // 새 수업을 등록한다.
     saveData();
     return 1;
   }
 
-  public List<Board> findAll() throws Exception {
+  public List<Lesson> findAll() throws Exception {
     return list;
   }
 
-  public Board findByNo(int no) throws Exception {
+  public Lesson findByNo(int no) throws Exception {
     int index = indexOf(no);
     if (index == -1) {
       return null;
@@ -33,14 +33,14 @@ public class BoardJsonFileDao extends AbstractJsonFileDao<Board> {
     return list.get(index);
   }
 
-  public int update(Board board) throws Exception {
-    int index = indexOf(board.getNo());
+  public int update(Lesson lesson) throws Exception {
+    int index = indexOf(lesson.getNo());
 
     if (index == -1) {
       return 0;
     }
 
-    list.set(index, board); // 기존 객체를 파라미터로 받은 객체로 바꾼다.
+    list.set(index, lesson); // 기존 객체를 파라미터로 받은 객체로 바꾼다.
     saveData();
     return 1;
   }
@@ -59,7 +59,7 @@ public class BoardJsonFileDao extends AbstractJsonFileDao<Board> {
   @Override
   protected <K> int indexOf(K key) {
     for (int i = 0; i < list.size(); i++) {
-      if (list.get(i).getNo() == (int) key) { // K가 어떤 타입인지 형변환해서 사용하라.
+      if (list.get(i).getNo() == (int) key) {
         return i;
       }
     }
