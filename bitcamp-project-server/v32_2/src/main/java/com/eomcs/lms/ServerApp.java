@@ -12,6 +12,7 @@ public class ServerApp {
 
     try ( // 서버쪽 연결 준비
         // => 클라이언트의 연결을 9999번 포트에서 기다린다.
+        // => 서버에서 서버 소켓
         ServerSocket serverSocket = new ServerSocket(9999)) {
 
       System.out.println("클라이언트 연결 대기중...");

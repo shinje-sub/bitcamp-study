@@ -41,15 +41,13 @@ public class DataLoaderListener implements ApplicationContextListener {
   }
 
   @Override
-  public void contextDestroyed(Map<String, Object> context) {
+  public void contextDestroyed(Map<Strisng, Object> context) {
     System.out.println("데이터를 저장합니다.");
     saveLessonData();
     saveMemberData();
     saveBoardData();
 
   }
-
-
 
   @SuppressWarnings("unchecked")
   private void loadLessonData() {
