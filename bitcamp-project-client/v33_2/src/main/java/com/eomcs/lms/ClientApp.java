@@ -97,7 +97,6 @@ public class ClientApp {
         }
       } catch (Exception e) {
         //
-
       }
     });
   }
