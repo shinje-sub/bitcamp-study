@@ -48,7 +48,7 @@ public class ServerApp {
 
   private void notifyApplicationInitialized() {
     for (ApplicationContextListener listener : listeners) {
-      listener.contextInitialzed(context);
+      listener.contextInitialized(context);
     }
   }
 

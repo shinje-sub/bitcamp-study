@@ -37,7 +37,7 @@ public class ClientApp {
   Scanner keyboard = new Scanner(System.in);
   Prompt prompt = new Prompt(keyboard);
 
-  Deque<String> commandStack; // 생성자에 넣은 필드에 넣으나 상관은 없는데 복사가 된다.
+  Deque<String> commandStack;
   Queue<String> commandQueue;
 
   String host;
@@ -101,13 +101,13 @@ public class ClientApp {
           System.out.println("안녕!");
         }
       } catch (Exception e) {
-        //
-
       }
     });
+
   }
 
   public void service() {
+
 
     while (true) {
       String command;
@@ -115,7 +115,6 @@ public class ClientApp {
 
       if (command.length() == 0)
         continue;
-
       if (command.equals("history")) {
         printCommandHistory(commandStack.iterator());
         continue;
@@ -125,16 +124,15 @@ public class ClientApp {
       } else if (command.equals("quit")) {
         break;
       }
-
       commandStack.push(command);
       commandQueue.offer(command);
 
-      processCommand(command);
+      prcessCommand(command);
     }
     keyboard.close();
   }
 
-  private void processCommand(String command) {
+  private void prcessCommand(String command) {
     Command commandHandler = commandMap.get(command);
     if (commandHandler == null) {
       System.out.println("실행할 수 없는 명령입니다.");

@@ -9,5 +9,6 @@ import java.io.ObjectOutputStream;
 // [DaoProxyHelper]--------->[Worker]
 //
 public interface Worker {
-  Object execute(ObjectInputStream in, ObjectOutputStream out) throws Exception;
+  Object execute(ObjectInputStream out, ObjectOutputStream in) throws Exception;
 }
+ 

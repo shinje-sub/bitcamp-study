@@ -6,8 +6,8 @@
 
 ## 실습 소스 및 결과
 
-- src/main/java/com/eomcs/lms/dao/proxy/Worker.java 변경
-- src/main/java/com/eomcs/lms/dao/proxy/DaoPorxyHelper.java 변경
+- src/main/java/com/eomcs/lms/dao/proxy/Worker.java 추가
+- src/main/java/com/eomcs/lms/dao/proxy/DaoPorxyHelper.java 추가
 - src/main/java/com/eomcs/lms/dao/proxy/XxxDaoProxy.java 변경
 - src/main/java/com/eomcs/lms/ClientApp.java 변경
 

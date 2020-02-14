@@ -82,8 +82,9 @@ public class LessonDaoProxy implements LessonDao {
       out.writeInt(no);
       out.flush();
 
-      String response = in.readUTF();
-      if (response.equals("FAIL")) {
+      String respinse = in.readUTF();
+
+      if (respinse.equals("FAIL")) {
         throw new Exception(in.readUTF());
       }
       return 1;

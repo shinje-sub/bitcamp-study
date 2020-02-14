@@ -11,6 +11,7 @@ public class MemberInsertWorker implements Worker {
     this.member = member;
   }
 
+
   @Override
   public Object execute(ObjectInputStream in, ObjectOutputStream out) throws Exception {
     out.writeUTF("/member/add");
@@ -23,5 +24,4 @@ public class MemberInsertWorker implements Worker {
     }
     return 1;
   }
-
 }
