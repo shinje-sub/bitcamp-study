@@ -3,7 +3,6 @@ package com.eomcs.lms;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.sql.DriverManager;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -48,7 +47,7 @@ public class ClientApp {
 
   HashMap<String, Command> commandMap = new HashMap<>();
 
-  public ClientApp() throws Exception {
+  public ClientApp() {
     // 생성자?
     // => 객체가 작업할 때 사용할 자원들을 준비하는 일을 한다.
 
@@ -56,16 +55,10 @@ public class ClientApp {
     commandStack = new ArrayDeque<>();
     commandQueue = new LinkedList<>();
 
-    // DB 연결 객체 준비
-    Class.forName("org.mariadb.jdbc.Driver");
-
-    Connection con = DriverManager.getConnection( //
-        "jdbc:mariadb://localhost:3306/studydb", "study", "1111");
-
     // MariaDB와 연동하여 데이터를 처리하는 DAO 객체 준비
-    BoardDao boardDao = new BoardDaoImpl(con);
-    MemberDao memberDao = new MemberDaoImpl(con);
-    LessonDao lessonDao = new LessonDaoImpl(con);
+    BoardDao boardDao = new BoardDaoImpl();
+    MemberDao memberDao = new MemberDaoImpl();
+    LessonDao lessonDao = new LessonDaoImpl();
 
     // 사용자 명령을 처리할 Command 객체 준비
     commandMap.put("/board/list", new BoardListCommand(boardDao));
