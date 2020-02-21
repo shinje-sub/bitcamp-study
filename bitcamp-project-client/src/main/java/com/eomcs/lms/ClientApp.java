@@ -51,7 +51,7 @@ public class ClientApp {
   }
 
   private void processCommand(String command) {
-    // 명령어 형식을 변경한다.
+    // 명령어 형식을 변경!
     // [기존 방식]
     // => 예) /board/list
     // [새 방식]
@@ -68,10 +68,10 @@ public class ClientApp {
       }
 
       // System.out.println(command);
-      // command 예) bitcamp://localhost/9999/board/list
+      // command 예) bitcamp://localhost:9999/board/list
 
       String url = command.substring(10);
-      // => localhost/9999/board/list
+      // => localhost:9999/board/list
 
       // System.out.println(url);
 
@@ -79,19 +79,21 @@ public class ClientApp {
       String[] str = //
           url.substring(0, index) // localhost:9999
               .split(":"); // {"localhost", "9999"}
+
       host = str[0];
       if (str.length == 2) {
         port = Integer.parseInt(str[1]);
       }
-      // System.out.printf("=> %s:%d\n", host, port); // => localhost 9999
+      // System.out.printf("=> %s:%d\n", host, port); // => localhost:9999
 
-      servletPath = url.substring(index); // => /board/list
-      System.out.printf("=> %s\n", servletPath);
+      servletPath = url.substring(index);
+      // System.out.printf("=> %s\n", servletPath); // => /board/list
 
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return;
     }
+
     // 서버에 연결한다.
     try (Socket socket = new Socket(host, port);
         PrintStream out = new PrintStream(socket.getOutputStream());
@@ -106,8 +108,12 @@ public class ClientApp {
         String response = in.nextLine();
         if (response.equals("!end!")) {
           break;
+        } else if (response.equals("!{}!")) {
+          String input = prompt.inputString("");
+          out.println(input);
+        } else {
+          System.out.println(response);
         }
-        System.out.println(response);
       }
 
     } catch (Exception e) {

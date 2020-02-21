@@ -18,7 +18,7 @@ public class BoardListCommand implements Command {
     try {
       List<Board> boards = boardDao.findAll();
       for (Board board : boards) {
-        System.out.printf("%d, %s, %s, %d\n", //
+        System.out.printf("=> %d, %s, %s, %d\n", //
             board.getNo(), //
             board.getTitle(), //
             board.getDate(), //
