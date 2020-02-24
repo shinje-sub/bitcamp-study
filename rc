@@ -1,0 +1,509 @@
+[33mcommit 2022771caaf9bd185092d5ba2c3e434020079a8e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Feb 24 11:00:28 2020 +0900
+
+    v37_4 search 기능 추가
+
+[33mcommit ac00195e5ab1d76ae6a186bc98f3210406dd71f7[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 21 20:44:51 2020 +0900
+
+     ~ing
+
+[33mcommit 43a1afb8c41faa83f3c94d9e6f83ee710fd5605b[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 21 19:15:45 2020 +0900
+
+    v37_3 규칙2에 따라 통신하는 클라이언트 만들기
+
+[33mcommit 5fea8db2895a950a7ad5873b83920307b5b1764f[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 21 19:13:05 2020 +0900
+
+    v37_3 통신 규칙2 추가 및 Servlet, DAO에 적용
+
+[33mcommit 729a06ccfb6060548d850cad627ebdde1452202f[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 21 16:09:10 2020 +0900
+
+    v37_2  Server + DAO 적용 + 통신 규칙 1
+
+[33mcommit 4ba8ad56b5ccffd53fb39a9f163848069b06aa1e[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 21 14:41:32 2020 +0900
+
+    v37_1 Application Server 구조로 변경하기
+
+[33mcommit cb58a866f5757640cc0a0ec7fca8b535858cf550[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Feb 17 15:11:27 2020 +0900
+
+     v36_2 DB 커넥션 객체 공유하기
+
+[33mcommit 1c80d3a8eaab2bb70a53801c050a2132447bdde7[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Feb 17 14:57:49 2020 +0900
+
+     v36_1 DBMS를 도입하여 데이터 관리 맡기기
+
+[33mcommit e6d65a3ab0e7ae6469bfabc040b0b0f1789f08bb[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 14 19:09:14 2020 +0900
+
+    MariaDB 2020-02-14 ~ing
+
+[33mcommit 6f70c06928c6949b231206f1ee739737fe96e29b[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 14 13:06:53 2020 +0900
+
+    v35 스레드 활용 및 재사용
+
+[33mcommit 959b4c12b37214ff02f7f10e056d25032dd5955c[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 13 16:39:42 2020 +0900
+
+    v34 Thread() 문법 사용하기
+
+[33mcommit 25006f9d47e8ffdcb5f00c7d2c780a7aaad53737[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 13 16:10:39 2020 +0900
+
+    v33_3 서버 연결부분 캡슐화 하기
+
+[33mcommit fd99d911f9ca358ebb1c337044d7b0edad24366a[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 13 14:24:58 2020 +0900
+
+    v33_2 서버 연결 부분 캡슐화하기
+
+[33mcommit af04422e7c9d8ed394f4e2f31bb8d39ce8cc416e[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 13 14:23:40 2020 +0900
+
+    v33 동일한 자원으로 더 많은 클라이언트 요청처리 방법
+
+[33mcommit b6c8f52da46996b0d8691cebd2310218038a4aeb[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Feb 11 18:44:06 2020 +0900
+
+     v29_3 LMS 파일들을 로딩하고 저장하기
+
+[33mcommit b4886be223c344d8d920e342318fa69f680491a5[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 7 14:45:22 2020 +0900
+
+    v 32_11 서버에세 제공한 프록시 객체로 데이터 처리하기
+
+[33mcommit 947e110f6e18a8cbe898fc7f45028d6599e507a4[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 7 10:04:18 2020 +0900
+
+    v32_10 인터페이스를 이용하여 DAO 호출 규칙 통일하기
+
+[33mcommit d842beaa467070a890e04dfdd09dca37eaff75b5[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Feb 7 09:43:30 2020 +0900
+
+    v32_9 JSON 형식으로 가져오기
+
+[33mcommit ce079cf6d8c8e6361d501663c1fc70f795520387[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 6 13:11:27 2020 +0900
+
+    2020_02_06 ~ing
+
+[33mcommit dd12880d0cc2fcd7ae8c28400d23498d0b5fe123[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 6 12:15:42 2020 +0900
+
+     v32_8 DAO 클래스 공통점을 generalization 묶기
+
+[33mcommit dfb6a45e28f893ddec032809f5a8c604720e75dd[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 6 11:08:12 2020 +0900
+
+     v32_7 데이터 처리 코드 별도의 메서드 분리하기
+
+[33mcommit cb83aca459c6413e89ee06427c1271ac8aa9422e[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Feb 6 11:00:47 2020 +0900
+
+     v32_7 데이터 처리 코드 별도의 메서드 분리하기
+
+[33mcommit 230d21de2d8a8302dc7ccdd0dddcddfb93b1d83c[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Feb 5 14:16:27 2020 +0900
+
+    v32_6 command 패턴 적용하여 메서드를 객체화 하기
+
+[33mcommit 7b1dac01968eafda1d5cbe284cdbf334590b6704[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Feb 5 11:23:58 2020 +0900
+
+    v32_5 서버에서 switch~ case문 사용 하기
+
+[33mcommit b88aacf9901d916c3d7338e3502f91f3fb4887ad[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Feb 5 10:19:55 2020 +0900
+
+    v32_4 클라이언트 게시물 관리와 관련하여 클라이언트 요청하기
+
+[33mcommit 47a6dda438ba37c30317592ec2737f454683f986[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Feb 5 01:27:24 2020 +0900
+
+    2020-02-05 ~ing
+
+[33mcommit 72302b4b2812fc9a9e20e6e74b2942d356d7b1b1[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Feb 4 20:58:12 2020 +0900
+
+    2020-2-4 ~ing
+
+[33mcommit b882a1c913b42b4ae71eb4cfbb3539f2e4c08d83[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Feb 4 11:27:25 2020 +0900
+
+    v32_3 LMS를 서버로 로딩하고 저장하기
+
+[33mcommit ed056f75ccbc3309bdfca848ebed125264080a3d[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Feb 3 16:30:36 2020 +0900
+
+     v32_2 server 생성 및 server 관리 KeyScanner 사용하여 받기
+
+[33mcommit 9d97fffceab4404b10ab915ece5be09d239aab44[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Feb 3 16:29:00 2020 +0900
+
+     v32_1 server 생성 및 server 관리
+
+[33mcommit 468d263246c005b69e61601be30677d7c5564278[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Feb 3 11:17:07 2020 +0900
+
+     v31_3 'observer' 디자인패턴 적용3
+
+[33mcommit 50601ff318ac42f226d0e8b14aaed554a58e574b[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Jan 31 18:18:07 2020 +0900
+
+     v31_2 'observer' 디자인 패털 적용2
+
+[33mcommit 245d99814f2502438fb6d8634e10c206929edab2[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Jan 31 16:57:31 2020 +0900
+
+     v31_1'observer' 디자인 패턴적용하기
+
+[33mcommit 00bb751169753e0c57f4886316fcba4575976725[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Jan 31 11:41:57 2020 +0900
+
+    직렬화와역직렬화이용하기
+
+[33mcommit e39105d1fa0f4e2666aa212065b9c04c441b68be[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Jan 31 11:02:32 2020 +0900
+
+    v29 바이너리 형식 입출력
+
+[33mcommit a0f24d8a1ce2834f6d5b27976f9d9c380fd9933e[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Fri Jan 31 09:48:08 2020 +0900
+
+    v28_4 Buffered 사용
+
+[33mcommit 24c456390691a1b3084639e71ca633c37dcf6b11[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 30 16:52:27 2020 +0900
+
+    소스 정리
+
+[33mcommit 691d630dfee9cfd35ff0d34b14f36feb521a04e7[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 23 13:23:56 2020 +0900
+
+    v28 JSON 도입 및 코드 수정
+
+[33mcommit 93a517703c623271739d77419b8f4ac37a569c65[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 23 12:46:13 2020 +0900
+
+    v28 JSON으로 도입하기
+
+[33mcommit 0cfcd46e8561aabe792e0e039231e59a23fdb160[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Jan 22 10:18:02 2020 +0900
+
+    v27 예외 처리 문법 사용
+
+[33mcommit 7b17ec0b54b95d13cc532c36a56a60f242ea26fe[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Jan 21 18:04:13 2020 +0900
+
+    v26 Command 사용 및 code 수정
+
+[33mcommit f843457d1561d62b142f0f5b677ee41cecf84135[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Jan 20 15:44:51 2020 +0900
+
+    sorce 수정
+
+[33mcommit 7f2c9196b57c9104f368313a79a5829804b4d873[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 16 14:51:03 2020 +0900
+
+    v25 JAVA API 사용
+
+[33mcommit 3611ac3dbfc09b1e994cd349e091faa03d3024ab[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 16 12:50:11 2020 +0900
+
+    v24_5 Iterator 구현체와 로컬 클래스(anonymous class)
+
+[33mcommit 8b22431bc67db965de1f2f2805f0f61ad1f22287[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 16 12:01:34 2020 +0900
+
+    v24_4 Iterator 구현체와 로컬 클래스 (local class)
+
+[33mcommit 83885e1ab542494b7a6bb5cf92353442fba367a5[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 16 11:25:15 2020 +0900
+
+    v24_3 non-static nested class; inner class
+
+[33mcommit 6f6e62c0a7f5967f12055417285018088a7113a9[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 16 10:13:12 2020 +0900
+
+    v24_1 중첩 클래스사용
+
+[33mcommit 9d6283b5d321c4ff9e4a7d9d9f76bf574e26d299[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Jan 15 16:41:34 2020 +0900
+
+    v24_1 'Iterator' 디자인 패턴 적용
+
+[33mcommit 8f59c92de3f8d9a08750187f7e560df73935fc32[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Jan 13 16:22:41 2020 +0900
+
+    v22 2020-01-13 queue 구현
+
+[33mcommit b94c32a9c51c9b5355d8eb1e288767bf1550160f[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Jan 13 15:58:38 2020 +0900
+
+    2020-01-13 v21 stack 구현
+
+[33mcommit 7e0bba6410a5b0d54bc4a389385e22b23f615389[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 9 20:32:06 2020 +0900
+
+    2020-01-09 v016_1 CRUD1
+
+[33mcommit 1c0aa9260d4f54b11c556c64a2ed4141ee10d989[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 9 16:05:10 2020 +0900
+
+    2020-01-09 v20
+
+[33mcommit d4151c7da8c6c0ce5dec3e58b1f35e17868dad25[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 9 11:55:58 2020 +0900
+
+    2020-01-09 v19_3
+
+[33mcommit df35b98ffaf49886d3cd9c8571549a21cb884fbe[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Jan 8 18:02:30 2020 +0900
+
+    2020-01-08 v19_2 GRUD
+
+[33mcommit bf8efc3ad062b74b9b1cd736bcb6f435befb2ee9[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Wed Jan 8 16:59:57 2020 +0900
+
+    2020-01-08 v19_1 CRUD
+
+[33mcommit 371876a5ed3a619f7b44da4b8c3acb2b060c6f3b[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Jan 7 15:18:22 2020 +0900
+
+    v18 제네릭 사용법
+
+[33mcommit 5927751a0a7aeee922638431a41f24a155a5b66d[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Mon Jan 6 20:01:34 2020 +0900
+
+    2020_01_06
+
+[33mcommit fce30db0183a3d7cdf476a9e31f4012f833d327d[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Jan 2 17:35:25 2020 +0900
+
+    v17 다형성과 형변환
+
+[33mcommit 18a2fa221e792bd4a0096fe3801a9d79078b2792[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Dec 31 12:41:46 2019 +0900
+
+    v15 캡슐화
+
+[33mcommit 8ae1f69db94eda38755fd2d584d0b5f4e62d5075[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Dec 24 14:21:41 2019 +0900
+
+    12번 class로 분리2 2019-12-24
+
+[33mcommit 95bb300369defb3b07054a002aa3615383bc1c49[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Tue Dec 24 10:57:53 2019 +0900
+
+    11번 class로 분리 2019-12-24
+
+[33mcommit ba7fbd5c320463599b5988ea5c22c3fbaa2d9ad0[m[33m ([m[1;33mtag: 06-02[m[33m)[m
+Author: shinji-sub <wltjq2006@naver.com>
+Date:   Thu Dec 19 18:00:22 2019 +0900
+
+    class문 사용
+
+[33mcommit ac81e2f318575a8c50284af866a82e2fc99afd64[m[33m ([m[1;33mtag: v07.1[m[33m, [m[1;33mtag: v07[m[33m)[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 17 20:50:14 2019 +0900
+
+    Triangle, 구구단 2019-12-17
+
+[33mcommit 2082d76a2a4492898490dba28656a30fa179a021[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Mon Dec 16 20:47:55 2019 +0900
+
+    입력의 합과 최댓값 최솟값 구하기 (2019_12_16)
+
+[33mcommit d52d106cbb58f7eaa7b7b7c3ee8ee056dd52ba59[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Mon Dec 16 11:39:23 2019 +0900
+
+    정수 변환
+
+[33mcommit 6470467ed651a0fb980079c78bc24139f51bc8eb[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Sat Dec 14 17:36:16 2019 +0900
+
+    2019/12/14 Study
+
+[33mcommit 1dee066cc4c483dbfb7df5e468f1b4f6eb619bad[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Fri Dec 13 20:48:35 2019 +0900
+
+    2019-12-13 v06
+
+[33mcommit 3ea8f3a67c3075c8f6aa052e3c3d601af7c407fe[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Thu Dec 12 20:48:29 2019 +0900
+
+    2019-12-12 05
+
+[33mcommit 46f52bdfe6880c12a7b07f6dfd193f35c8a18ca7[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 11 20:49:33 2019 +0900
+
+    2019-12-11
+
+[33mcommit 7ca117e91cd1efa38c67cd21826524484a00b9d6[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 11 10:12:44 2019 +0900
+
+    v4
+
+[33mcommit 80f5844dccccb2fa4f3904542a7de12e6a54f504[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 10 20:24:23 2019 +0900
+
+    자바 프로젝트 준비_ 주차 관리 시스템
+
+[33mcommit f8f01e7843e21d3278ce791d3125170dd3379013[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 10 16:02:42 2019 +0900
+
+    자바 프로젝트 준비
+
+[33mcommit 46bb0ed0935fa84e63d79c9d9b1adc62b5e8045d[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Thu Dec 5 20:53:05 2019 +0900
+
+    변수와 주석
+
+[33mcommit d9b77c93c53587d46b9d9a947bca6d41e2f2c9a4[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 4 20:54:04 2019 +0900
+
+    패키지와 소스파일
+
+[33mcommit 994f19aaf504215e16371721fec24ff049c191ce[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 4 18:18:26 2019 +0900
+
+    개발 도구 설정
+
+[33mcommit 6aed8efc5c085a82448f718a7d1275e028bdc756[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 4 15:29:57 2019 +0900
+
+    자바 디렉토르 생성
+
+[33mcommit a3352b55bf5af0015423beac02ea7d0ef3cee68a[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 4 15:27:23 2019 +0900
+
+    자바 디렉토리 생성
+
+[33mcommit 7af5cd425d467026fe7aee5a97084770b7d2e0f6[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Wed Dec 4 15:12:57 2019 +0900
+
+    자바 프로젝트 디렉토리 생성
+
+[33mcommit 5812f0f1a75ed3f3f7ee073ae6a981ad7c7c424d[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 3 12:59:21 2019 +0900
+
+    개발 도구 설치 및 설정 정보
+
+[33mcommit 5c86b0027abd0d159c4ee60b5a0d17059cef7046[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 3 11:45:33 2019 +0900
+
+    텍스트 파일 삭제
+
+[33mcommit 3579893eea91088f4a4a4ababad8092d559e1f1f[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 3 11:40:45 2019 +0900
+
+    텍스트 변경
+
+[33mcommit 028925984676f12c34590a23eccfd77558040793[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 3 11:40:01 2019 +0900
+
+    텍스트 변경
+
+[33mcommit 199fa1fe2a20196bb8bf9f69de3a8381d611d4ba[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 3 11:35:25 2019 +0900
+
+    텍스트 변경
+
+[33mcommit daebed64718cd7bdb1339c9b8de14f1faecc06d7[m
+Author: Shin je sub <wltjq2006@naver.com>
+Date:   Tue Dec 3 11:21:50 2019 +0900
+
+    업로드 테스트
+
+[33mcommit bfe6d6b639d84a03e88627e96f57179fbeb3f658[m
+Author: shinje-sub <58450778+shinje-sub@users.noreply.github.com>
+Date:   Tue Dec 3 10:19:40 2019 +0900
+
+    Initial commit
