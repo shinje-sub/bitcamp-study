@@ -1,8 +1,8 @@
 package com.eomcs.lms.dao.mariadb;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.eomcs.lms.dao.BoardDao;
@@ -21,59 +21,48 @@ public class BoardDaoImpl implements BoardDao {
   public int insert(Board board) throws Exception {
 
     try (Connection con = dataSource.getConnection(); //
-        Statement stmt = con.createStatement()) {
+        PreparedStatement stmt = con.prepareStatement("insert into lms_board(conts) values(?)")) {
 
-
-      con.setAutoCommit(true);
-
-      int result = stmt.executeUpdate("insert into lms_board(conts) " + ""//
-          + "values('" + board.getTitle() + "')");
-
-      return result;
+      stmt.setString(1, board.getTitle());
+      return stmt.executeUpdate();
     }
   }
 
   @Override
   public List<Board> findAll() throws Exception {
-    // JDBC Driver(MariaDB 프록시)를 로딩한다.
-    Class.forName("org.mariadb.jdbc.Driver");
+    try (Connection con = dataSource.getConnection();
+        PreparedStatement stmt = con.prepareStatement(
+            "select board_id, conts, cdt, vw_cnt" + " from lms_board" + " order by board_id desc");
+        ResultSet rs = stmt.executeQuery()) {
 
-    try (Connection con = dataSource.getConnection(); //
-        Statement stmt = con.createStatement()) {
+      ArrayList<Board> list = new ArrayList<>();
 
+      while (rs.next()) {
+        Board board = new Board();
 
-      ResultSet rs = stmt.executeQuery( //
-          "select board_id, conts, cdt, vw_cnt from lms_board");
-      {
+        board.setNo(rs.getInt("board_id"));
+        board.setTitle(rs.getString("conts"));
+        board.setDate(rs.getDate("cdt"));
+        board.setViewCount(rs.getInt("vw_cnt"));
 
-        ArrayList<Board> list = new ArrayList<>();
-
-        // ResultSet 도구를 사용하여 데이터를 하나씩 가져온다.
-        while (rs.next()) { // 데이터를 한 개 가져왔으면 true를 리턴한다.
-          Board board = new Board();
-
-          board.setNo(rs.getInt("board_id"));
-          board.setTitle(rs.getString("conts"));
-          board.setDate(rs.getDate("cdt"));
-          board.setViewCount(rs.getInt("vw_cnt"));
-
-          list.add(board);
-        }
-
-        return list;
+        list.add(board);
       }
-    }
 
+      return list;
+    }
   }
+
+
 
   @Override
   public Board findByNo(int no) throws Exception {
-
     try (Connection con = dataSource.getConnection(); //
-        Statement stmt = con.createStatement()) {
-      ResultSet rs = stmt.executeQuery( //
-          "select board_id, conts, cdt, vw_cnt from lms_board order by board_id desc");
-      {
+        PreparedStatement stmt = con.prepareStatement( //
+            "select board_id, conts, cdt, vw_cnt " //
+                + "from lms_board" //
+                + "where  board_id=?")) {
+      stmt.setInt(1, no);
+      try (ResultSet rs = stmt.executeQuery()) {
         if (rs.next()) {
           Board board = new Board();
           board.setNo(rs.getInt("board_id"));
@@ -92,12 +81,13 @@ public class BoardDaoImpl implements BoardDao {
   @Override
   public int update(Board board) throws Exception {
     try (Connection con = dataSource.getConnection(); //
-        Statement stmt = con.createStatement()) {
-
-      int result = stmt.executeUpdate("update lms_board set conts='" + //
-          board.getTitle() + "' where board_id=" + board.getNo());
-
-      return result;
+        PreparedStatement stmt = con.prepareStatement(//
+            "update lms_board set" //
+                + "conts=? "//
+                + " where board_id=?")) {
+      stmt.setString(1, board.getTitle());
+      stmt.setInt(2, board.getNo());
+      return stmt.executeUpdate();
     }
   }
 
@@ -105,12 +95,12 @@ public class BoardDaoImpl implements BoardDao {
   public int delete(int no) throws Exception {
 
     try (Connection con = dataSource.getConnection(); //
-        Statement stmt = con.createStatement()) {
+        PreparedStatement stmt = con.prepareStatement( //
+            "delete from lms_board" //
+                + "where board_id=?")) {
+      stmt.setInt(1, no);
 
-      int result = stmt.executeUpdate("delete from lms_board where board_id=" + no);
-
-
-      return result;
+      return stmt.executeUpdate();
     }
   }
 
