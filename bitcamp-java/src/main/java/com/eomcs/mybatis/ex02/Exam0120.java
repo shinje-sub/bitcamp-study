@@ -13,7 +13,7 @@ public class Exam0120 {
 
   public static void main(String[] args) throws Exception {
     InputStream inputStream = Resources.getResourceAsStream(
-        "step25/ex6/mybatis-config02.xml");
+        "com/eomcs/mybatis/ex02/mybatis-config02.xml");
     SqlSessionFactory factory = 
         new SqlSessionFactoryBuilder().build(inputStream);
 
@@ -23,10 +23,10 @@ public class Exam0120 {
         sqlSession.selectList("BoardMapper.selectBoard");
 
     for (Board board : list) {
-      System.out.printf("%d, %s, %s, %s\n", 
-          board.getNo(), 
-          board.getTitle(), 
-          board.getContent(),
+      System.out.printf("%d, %s, %s, %s\n", //
+          board.getNo(), //
+          board.getTitle(), // 
+          board.getContent(), //
           board.getRegisteredDate());
     }
 

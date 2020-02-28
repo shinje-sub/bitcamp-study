@@ -1,4 +1,4 @@
-// Mybatis - SQL에 파라미터 지정하기: 값 한 개를 넘길 때
+// Mybatis - SQL에 파라미터 지정하기: String값 넘겨주기
 package com.eomcs.mybatis.ex02;
 
 import java.io.InputStream;
@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class Exam0210 {
+public class Exam0211 {
 
   public static void main(String[] args) throws Exception {
     InputStream inputStream =
@@ -22,9 +22,9 @@ public class Exam0210 {
     // 여러 개의 값을 전달해야 한다면,
     // Map 객체에 담아 전달하라!
 
-    // 예) 5번 이상 게시물을 가져온다.
+    // 예) 게시글에 xxx를 포함한 게시글을 찾는다
     List<Board> list = sqlSession.selectList(//
-        "BoardMapper.selectBoard1", 5);
+        "BoardMapper.selectBoard2", "%xxx%");
 
     for (Board board : list) {
       System.out.printf("%d, %s, %s, %s\n", //

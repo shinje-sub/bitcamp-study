@@ -9,12 +9,13 @@
        그 별명을 사용할 수 있다. 
        별명은 대소문자를 구분하지 않는다.-->
   <select id="selectBoard" resultType="Board">
-    select 
-      bno as no,
-      titl as title,
-      cont as content,
-      rdt as registeredDate
-    from ex_board
+     select 
+      board_id as no,
+      title,
+      contents as content,
+      created_date registerdDate,
+      view_count viewCount
+    from x_board
   </select>
   
 </mapper>

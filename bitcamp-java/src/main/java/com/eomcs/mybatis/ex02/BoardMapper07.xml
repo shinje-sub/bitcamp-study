@@ -10,7 +10,7 @@
         -->
   <insert id="insertBoard" parameterType="Board"
           useGeneratedKeys="true" keyColumn="bno" keyProperty="no">
-    insert into ex_board(titl,cont,rdt) 
+    insert into x_board(title,contents,created_data) 
     values(#{title},#{content},now())
   </insert>  
 </mapper>
