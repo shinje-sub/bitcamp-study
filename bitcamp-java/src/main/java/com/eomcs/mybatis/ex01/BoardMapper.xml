@@ -10,7 +10,7 @@
      유지보수의 일관성을 유지하라!-->
 <mapper namespace="BoardMapper">
   
-  <select id="selectBoard" resultTyp"src/main/java/com/eomcs/mybatis/ex01/Exam0210.java"e="com.eomcs.mybatis.ex01.Board">
+  <select id="selectBoard" resultType="com.eomcs.mybatis.ex01.Board">
     select 
       board_id,
       title,
@@ -25,11 +25,10 @@
       board_id as no,
       title,
       contents as content,
-      created_date registerdDate,
+      created_date registeredDate,
       view_count viewCount
     from x_board
   </select>
-  
 </mapper>
 
 

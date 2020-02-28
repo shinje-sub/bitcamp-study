@@ -37,19 +37,21 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
-    // mybatis 설정 파일을 읽을 InputStream 도구를 준비한다.
-    // 1 직업 파일 시스템 경로를 지정하기
-    // => 단, 소스 파일 경로를 지정하지 말아라
+    // 1. mybatis 설정 파일을 읽을 InputStream 도구를 준비한다.
+    // 1) 직접 파일 시스템 경로를 지정하기
+    // => 단 소스 파일 경로를 지정하지 말아라.
     // => 컴파일된 후 XML 파일이 놓이는 경로를 지정해라.
     // => 자바 패키지에 작성한 일반 파일은 그대로 빌드 디렉토리에 복사된다.
-    // => 예) 프로젝트폴더/bin/main/com/eomcs/mybatis-config/ex01/BoardMapper.xml
+    // => 예) 프로젝트폴더/bin/main/com/eomcs/mybatis/ex01/mybatis-config.xml
+    //
     InputStream mybatisConfigInputStream = new FileInputStream(//
         "./bin/main/com/eomcs/mybatis/ex01/mybatis-config.xml");
 
     // 2. SqlSessionFactory를 만들어 줄 빌더 객체 준비
+    //
     SqlSessionFactoryBuilder factoryBuilder = new SqlSessionFactoryBuilder();
 
-    // 3.SqlSession 객체를 만들어 줄 팩토리 객체 준비
+    // 3. SqlSession 객체를 만들어 줄 팩토리 객체 준비
     // => mybatis는 Builder를 이용하여 SqlSessionFactory 객체를 만든다.
     // => 이때 공장 객체를 만들 때 사용할 설정 파일을 지정한다.
     // => 설정 파일의 경로를 직접 지정하지 말고,
@@ -57,7 +59,7 @@ public class Exam0110 {
     //
     SqlSessionFactory factory = factoryBuilder.build(mybatisConfigInputStream);
 
-    // 4.SQL을 실행시키는 객체 준비
+    // 4. SQL을 실행시키는 객체 준비
     // => SqlSessionFactory 객체로부터 SqlSession 객체를 얻는다.
     // => openSession()은 수동 커밋으로 SQL을 다루는 객체를 리턴한다.
     // => 자동 커밋으로 SQL을 다루고 싶다면,

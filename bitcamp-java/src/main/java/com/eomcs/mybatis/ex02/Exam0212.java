@@ -12,9 +12,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class Exam0212 {
 
   public static void main(String[] args) throws Exception {
-    InputStream inputStream =
-        Resources.getResourceAsStream("com/eomcs/mybatis/ex02/mybatis-config04.xml");
-    SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+    InputStream inputStream = Resources.getResourceAsStream(//
+        "com/eomcs/mybatis/ex02/mybatis-config04.xml");
+    SqlSessionFactory factory = //
+        new SqlSessionFactoryBuilder().build(inputStream);
 
     SqlSession sqlSession = factory.openSession();
 
@@ -22,12 +23,13 @@ public class Exam0212 {
     // 두 번째 파라미터로 전달해야 한다.
     // 여러 개의 값을 전달해야 한다면,
     // Map 객체에 담아 전달하라!
-    // 또는 도메인 객체(예: Board, Lesson)에 담아 전달하라
+    // 또는 도메인 객체(ex: Board, Lesson 등)에 담아 전달하라!
 
     // 예) 페이징 처리를 위한 시작 인덱스와 개수를 파라미터로 넘겨라.
     HashMap<String, Object> params = new HashMap<>();
     params.put("startIndex", 6);
     params.put("size", 3);
+
     List<Board> list = sqlSession.selectList(//
         "BoardMapper.selectBoard3", params);
 
