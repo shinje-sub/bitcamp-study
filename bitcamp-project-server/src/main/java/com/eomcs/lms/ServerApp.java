@@ -1,3 +1,4 @@
+// LMS 서버
 package com.eomcs.lms;
 
 import java.io.IOException;
@@ -15,6 +16,8 @@ import com.eomcs.lms.context.ApplicationContextListener;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.dao.MemberDao;
+import com.eomcs.lms.dao.PhotoBoardDao;
+import com.eomcs.lms.dao.PhotoFileDao;
 import com.eomcs.lms.servlet.BoardAddServlet;
 import com.eomcs.lms.servlet.BoardDeleteServlet;
 import com.eomcs.lms.servlet.BoardDetailServlet;
@@ -25,13 +28,21 @@ import com.eomcs.lms.servlet.LessonDeleteServlet;
 import com.eomcs.lms.servlet.LessonDetailServlet;
 import com.eomcs.lms.servlet.LessonListServlet;
 import com.eomcs.lms.servlet.LessonUpdateServlet;
+import com.eomcs.lms.servlet.LoginServlet;
 import com.eomcs.lms.servlet.MemberAddServlet;
 import com.eomcs.lms.servlet.MemberDeleteServlet;
 import com.eomcs.lms.servlet.MemberDetailServlet;
 import com.eomcs.lms.servlet.MemberListServlet;
 import com.eomcs.lms.servlet.MemberSearchServlet;
 import com.eomcs.lms.servlet.MemberUpdateServlet;
+import com.eomcs.lms.servlet.PhotoBoardAddServlet;
+import com.eomcs.lms.servlet.PhotoBoardDeleteServlet;
+import com.eomcs.lms.servlet.PhotoBoardDetailServlet;
+import com.eomcs.lms.servlet.PhotoBoardListServlet;
+import com.eomcs.lms.servlet.PhotoBoardUpdateServlet;
 import com.eomcs.lms.servlet.Servlet;
+import com.eomcs.sql.DataSource;
+import com.eomcs.sql.PlatformTransactionManager;
 
 public class ServerApp {
 
@@ -73,10 +84,19 @@ public class ServerApp {
 
     notifyApplicationInitialized();
 
+    // 커넥션풀을 꺼낸다.
+    DataSource dataSource = (DataSource) context.get("dataSource");
+
     // DataLoaderListener가 준비한 DAO 객체를 꺼내 변수에 저장한다.
     BoardDao boardDao = (BoardDao) context.get("boardDao");
     LessonDao lessonDao = (LessonDao) context.get("lessonDao");
     MemberDao memberDao = (MemberDao) context.get("memberDao");
+    PhotoBoardDao photoBoardDao = (PhotoBoardDao) context.get("photoBoardDao");
+    PhotoFileDao photoFileDao = (PhotoFileDao) context.get("photoFileDao");
+
+    // 트랜잭션 관리자를 꺼내 변수에 저장한다.
+    PlatformTransactionManager txManager = //
+        (PlatformTransactionManager) context.get("transactionManager");
 
     // 커맨드 객체 역할을 수행하는 서블릿 객체를 맵에 보관한다.
     servletMap.put("/board/list", new BoardListServlet(boardDao));
@@ -98,6 +118,19 @@ public class ServerApp {
     servletMap.put("/member/delete", new MemberDeleteServlet(memberDao));
     servletMap.put("/member/search", new MemberSearchServlet(memberDao));
 
+    servletMap.put("/photoboard/list", new PhotoBoardListServlet( //
+        photoBoardDao, lessonDao));
+    servletMap.put("/photoboard/detail", new PhotoBoardDetailServlet( //
+        photoBoardDao, photoFileDao));
+    servletMap.put("/photoboard/add", new PhotoBoardAddServlet( //
+        txManager, photoBoardDao, lessonDao, photoFileDao));
+    servletMap.put("/photoboard/update", new PhotoBoardUpdateServlet( //
+        txManager, photoBoardDao, photoFileDao));
+    servletMap.put("/photoboard/delete", new PhotoBoardDeleteServlet( //
+        txManager, photoBoardDao, photoFileDao));
+
+    servletMap.put("/auth/login", new LoginServlet(memberDao));
+
     try (ServerSocket serverSocket = new ServerSocket(9999)) {
 
       System.out.println("클라이언트 연결 대기중...");
@@ -106,9 +139,13 @@ public class ServerApp {
         Socket socket = serverSocket.accept();
         System.out.println("클라이언트와 연결되었음!");
 
-
         executorService.submit(() -> {
           processRequest(socket);
+          // 스레드에 보관된 커넥션 객체를 제거한다.
+          // => 스레드에서 제거한 Connection 객체는 다시 사용할 수 있도록
+          // DataSource에 반납된다.
+          //
+          dataSource.removeConnection();
           System.out.println("--------------------------------------");
         });
 
@@ -117,6 +154,7 @@ public class ServerApp {
         if (serverStop) {
           break;
         }
+
       }
 
     } catch (Exception e) {
@@ -128,7 +166,7 @@ public class ServerApp {
     executorService.shutdown();
     // => 스레드풀을 당장 종료시키는 것이 아니다.
     // => 스레드풀에 소속된 스레드들의 작업이 모두 끝나면
-    // 스레드풀의 동작을 종료하는 뜻이다.
+    // 스레드풀의 동작을 종료하라는 뜻이다.
     // => 따라서 shutdown()을 호출했다고 해서
     // 모든 스레드가 즉시 작업을 멈추는 것이 아니다.
     // => 즉 스레드풀 종료를 예약한 다음에 바로 리턴한다.
@@ -161,7 +199,6 @@ public class ServerApp {
         Scanner in = new Scanner(socket.getInputStream());
         PrintStream out = new PrintStream(socket.getOutputStream())) {
 
-      // 클라이언트가 보낸 명령을 읽는다.
       String request = in.nextLine();
       System.out.printf("=> %s\n", request);
 
@@ -186,11 +223,9 @@ public class ServerApp {
       } else {
         notFound(out);
       }
-
       out.println("!end!");
       out.flush();
       System.out.println("클라이언트에게 응답하였음!");
-
 
     } catch (Exception e) {
       System.out.println("예외 발생:");

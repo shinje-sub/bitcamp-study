@@ -1,10 +1,10 @@
 package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
-import java.sql.Date;
 import java.util.Scanner;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
+import com.eomcs.util.Prompt;
 
 public class LessonUpdateServlet implements Servlet {
 
@@ -21,10 +21,7 @@ public class LessonUpdateServlet implements Servlet {
   @Override
   public void service(Scanner in, PrintStream out) throws Exception {
 
-    out.println("번호? ");
-    out.println("!{}!");
-    out.flush();
-    int no = Integer.parseInt(in.nextLine());
+    int no = Prompt.getInt(in, out, "번호? ");
 
     Lesson old = lessonDao.findByNo(no);
     if (old == null) {
@@ -35,35 +32,29 @@ public class LessonUpdateServlet implements Servlet {
     Lesson lesson = new Lesson();
     lesson.setNo(no);
 
-    out.printf("수업명(%s)? \n", old.getTitle());
-    out.println("!{}!");
-    out.flush();
-    lesson.setTitle(in.nextLine());
+    lesson.setTitle(Prompt.getString(in, out, "수업명(%s)? \n", old.getTitle()));
 
-    out.printf("설명:(%s)? \n", old.getDescription());
-    out.println("!{}!");
-    out.flush();
-    lesson.setDescription(in.nextLine());
+    lesson.setDescription(Prompt.getString(in, out, "설명:(%s)? \n", old.getDescription()));
 
-    out.printf("강의 시작일(%s)? \n", old.getStartDate());
-    out.println("!{}!");
-    out.flush();
-    lesson.setStartDate(Date.valueOf(in.nextLine()));
+    lesson.setStartDate(Prompt.getDate( //
+        in, //
+        out, //
+        "강의 시작일(%s)? \n", old.getStartDate().toString()));
 
-    out.printf("강의 종료일(%s)? \n", old.getEndDate());
-    out.println("!{}!");
-    out.flush();
-    lesson.setEndDate(Date.valueOf(in.nextLine()));
+    lesson.setEndDate(Prompt.getDate(//
+        in, //
+        out, //
+        "강의 종료일(%s)? \n", old.getEndDate().toString()));
 
-    out.printf("총 강의 시간(%d)? \n", old.getTotalHours());
-    out.println("!{}!");
-    out.flush();
-    lesson.setTotalHours(Integer.parseInt(in.nextLine()));
+    lesson.setTotalHours(Prompt.getInt(//
+        in, //
+        out, //
+        "총 강의 시간(%d)? \n", String.valueOf(old.getTotalHours())));
 
-    out.printf("총 수업 시간(%d)? \n", old.getDayHours());
-    out.println("!{}!");
-    out.flush();
-    lesson.setDayHours(Integer.parseInt(in.nextLine()));
+    lesson.setDayHours(Prompt.getInt( //
+        in, //
+        out, //
+        "총 수업 시간(%d)? \n", String.valueOf(old.getDayHours())));
 
 
     if (lessonDao.update(lesson) > 0) {

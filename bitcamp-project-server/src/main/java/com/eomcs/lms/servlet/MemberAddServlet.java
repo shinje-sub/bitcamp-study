@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import com.eomcs.lms.dao.MemberDao;
 import com.eomcs.lms.domain.Member;
+import com.eomcs.util.Prompt;
 
 public class MemberAddServlet implements Servlet {
 
@@ -21,30 +22,15 @@ public class MemberAddServlet implements Servlet {
   public void service(Scanner in, PrintStream out) throws Exception {
     Member member = new Member();
 
-    out.println("이름? ");
-    out.println("!{}!");
-    out.flush();
-    member.setName(in.nextLine());
+    member.setName(Prompt.getString(in, out, "이름? "));
 
-    out.println("이메일? ");
-    out.println("!{}!");
-    out.flush();
-    member.setEmail(in.nextLine());
+    member.setEmail(Prompt.getString(in, out, "이메일? "));
 
-    out.println("암호? ");
-    out.println("!{}!");
-    out.flush();
-    member.setPassword(in.nextLine());
+    member.setPassword(Prompt.getString(in, out, "암호? "));
 
-    out.println("사진? ");
-    out.println("!{}!");
-    out.flush();
-    member.setPhoto(in.nextLine());
+    member.setPhoto(Prompt.getString(in, out, "사진? "));
 
-    out.println("전화? ");
-    out.println("!{}!");
-    out.flush();
-    member.setTel(in.nextLine());
+    member.setTel(Prompt.getString(in, out, "전화? "));
 
     if (memberDao.insert(member) > 0) {
       out.println("회원을 저장했습니다.");

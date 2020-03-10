@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import com.eomcs.lms.dao.MemberDao;
 import com.eomcs.lms.domain.Member;
+import com.eomcs.util.Prompt;
 
 public class MemberUpdateServlet implements Servlet {
 
@@ -20,10 +21,7 @@ public class MemberUpdateServlet implements Servlet {
   @Override
   public void service(Scanner in, PrintStream out) throws Exception {
 
-    out.println("번호? ");
-    out.println("!{}!");
-    out.flush();
-    int no = Integer.parseInt(in.nextLine());
+    int no = Prompt.getInt(in, out, "번호? ");
 
     Member old = memberDao.findByNo(no);
     if (old == null) {
@@ -33,30 +31,15 @@ public class MemberUpdateServlet implements Servlet {
     Member member = new Member();
     member.setNo(no);
 
-    out.println("이름(%s)? ");
-    out.println("!{}!");
-    out.flush();
-    member.setName(in.nextLine());
+    member.setName(Prompt.getString(in, out, "이름(%s)? "));
 
-    out.println("이메일(%s)? ");
-    out.println("!{}!");
-    out.flush();
-    member.setEmail(in.nextLine());
+    member.setEmail(Prompt.getString(in, out, "이메일(%s)? "));
 
-    out.println("암호(%s)? ");
-    out.println("!{}!");
-    out.flush();
-    member.setPassword(in.nextLine());
+    member.setPassword(Prompt.getString(in, out, "암호(%s)? "));
 
-    out.println("사진(%s)? ");
-    out.println("!{}!");
-    out.flush();
-    member.setPhoto(in.nextLine());
+    member.setPhoto(Prompt.getString(in, out, "사진(%s)? "));
 
-    out.println("전화번호(%s)? ");
-    out.println("!{}!");
-    out.flush();
-    member.setTel(in.nextLine());
+    member.setTel(Prompt.getString(in, out, "전화번호(%s)? "));
 
     if (memberDao.update(member) > 0) {
       out.println("회원을 변경했습니다.");

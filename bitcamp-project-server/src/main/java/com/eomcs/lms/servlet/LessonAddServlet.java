@@ -1,10 +1,10 @@
 package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
-import java.sql.Date;
 import java.util.Scanner;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
+import com.eomcs.util.Prompt;
 
 public class LessonAddServlet implements Servlet {
 
@@ -22,35 +22,17 @@ public class LessonAddServlet implements Servlet {
   public void service(Scanner in, PrintStream out) throws Exception {
     Lesson lesson = new Lesson();
 
-    out.println("강의명? ");
-    out.println("!{}!");
-    out.flush();
-    lesson.setTitle(in.nextLine());
+    lesson.setTitle(Prompt.getString(in, out, "강의명? "));
 
-    out.println("내용? ");
-    out.println("!{}!");
-    out.flush();
-    lesson.setDescription(in.nextLine());
+    lesson.setDescription(Prompt.getString(in, out, "내용? "));
 
-    out.println("강의 시작일? ");
-    out.println("!{}!");
-    out.flush();
-    lesson.setStartDate(Date.valueOf(in.nextLine()));
+    lesson.setStartDate(Prompt.getDate(in, out, "강의 시작일? "));
 
-    out.println("강의 종료일? ");
-    out.println("!{}!");
-    out.flush();
-    lesson.setEndDate(Date.valueOf(in.nextLine()));
+    lesson.setEndDate(Prompt.getDate(in, out, "강의 종료일? "));
 
-    out.println("총 강의 시간? ");
-    out.println("!{}!");
-    out.flush();
-    lesson.setTotalHours(Integer.parseInt(in.nextLine()));
+    lesson.setTotalHours(Prompt.getInt(in, out, "총 강의 시간? "));
 
-    out.println("일 수업 시간? ");
-    out.println("!{}!");
-    out.flush();
-    lesson.setDayHours(Integer.parseInt(in.nextLine()));
+    lesson.setDayHours(Prompt.getInt(in, out, "일 수업 시간? "));
 
     if (lessonDao.insert(lesson) > 0) {
       out.println("새 게시글을 등록했습니다.");
