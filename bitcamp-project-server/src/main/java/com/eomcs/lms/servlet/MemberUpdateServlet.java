@@ -31,15 +31,16 @@ public class MemberUpdateServlet implements Servlet {
     Member member = new Member();
     member.setNo(no);
 
-    member.setName(Prompt.getString(in, out, "이름(%s)? "));
-
-    member.setEmail(Prompt.getString(in, out, "이메일(%s)? "));
-
-    member.setPassword(Prompt.getString(in, out, "암호(%s)? "));
-
-    member.setPhoto(Prompt.getString(in, out, "사진(%s)? "));
-
-    member.setTel(Prompt.getString(in, out, "전화번호(%s)? "));
+    member.setName(Prompt.getString(in, out, //
+        String.format("이름(%s)? ", old.getName())));
+    member.setEmail(Prompt.getString(in, out, //
+        String.format("이메일(%s)? ", old.getEmail())));
+    member.setPassword(Prompt.getString(in, out, //
+        String.format("암호(%s)? ", old.getPassword())));
+    member.setPhoto(Prompt.getString(in, out, //
+        String.format("사진(%s)? ", old.getPhoto())));
+    member.setTel(Prompt.getString(in, out, //
+        String.format("전화번호(%s)? ", old.getTel())));
 
     if (memberDao.update(member) > 0) {
       out.println("회원을 변경했습니다.");

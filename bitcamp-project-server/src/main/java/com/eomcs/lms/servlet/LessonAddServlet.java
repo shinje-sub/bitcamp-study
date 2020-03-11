@@ -23,15 +23,10 @@ public class LessonAddServlet implements Servlet {
     Lesson lesson = new Lesson();
 
     lesson.setTitle(Prompt.getString(in, out, "강의명? "));
-
     lesson.setDescription(Prompt.getString(in, out, "내용? "));
-
     lesson.setStartDate(Prompt.getDate(in, out, "강의 시작일? "));
-
     lesson.setEndDate(Prompt.getDate(in, out, "강의 종료일? "));
-
     lesson.setTotalHours(Prompt.getInt(in, out, "총 강의 시간? "));
-
     lesson.setDayHours(Prompt.getInt(in, out, "일 수업 시간? "));
 
     if (lessonDao.insert(lesson) > 0) {
