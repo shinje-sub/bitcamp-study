@@ -20,9 +20,8 @@ public class MemberListServlet implements Servlet {
   public void service(Scanner in, PrintStream out) throws Exception {
     List<Member> members = memberService.list();
     for (Member m : members) {
-      out.printf("%d, %s, %s, %s, %s\n", m.getNo(), m.getName(), m.getEmail(), m.getTel(),
-          m.getRegisteredDate());
+      out.printf("%d, %s, %s, %s, %s\n", //
+          m.getNo(), m.getName(), m.getEmail(), m.getTel(), m.getRegisteredDate());
     }
-
   }
 }

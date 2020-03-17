@@ -15,10 +15,10 @@ public class PlatformTransactionManager {
     // 기존에 스레드에 존재하는 SqlSession 객체를 지운다.
     ((SqlSessionFactoryProxy) sqlSessionFactory).closeSession();
 
-    // 수동 커밋으로 동작하는 SQLSession 객체를 준비한다.
+    // 수동 커밋으로 동작하는 SqlSession 객체를 준비한다.
     sqlSessionFactory.openSession(false);
 
-    // openSession(flase)을 호출하면
+    // openSession(false)을 호출하면
     // => 수동 커밋으로 동작하는 SqlSession을 만들어 스레드에 보관한다.
   }
 
@@ -26,7 +26,7 @@ public class PlatformTransactionManager {
     // 스레드에 보관된 SqlSession 객체를 꺼낸다.
     SqlSession sqlSession = sqlSessionFactory.openSession();
 
-    // 이 SqlSession 객체를 통행 수행했던 모든 데이터 변경 작업을 승인한다.
+    // 이 SqlSession 객체를 통해 수행했던 모든 데이터 변경 작업을 승인한다.
     sqlSession.commit();
   }
 

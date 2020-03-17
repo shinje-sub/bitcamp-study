@@ -24,14 +24,13 @@ public class MybatisDaoFactory {
       // 2) 리턴 타입에 따라 호출할 메서드를 결정한다.
       // 3) 파라미터 유무에 따라 메서드에 넘길 항목을 결정한다.
 
-
       // => SQL ID 알아내기
       Class<?> clazz = proxy.getClass(); // 프록시 객체의 정보를 알아낸다.
       Class<?> daoInterface = clazz.getInterfaces()[0]; // 프록시 객체가 구현한 인터페이스 정보를 알아낸다.
       String interfaceName = daoInterface.getName();
       String methodName = method.getName();
       String sqlId = String.format("%s.%s", interfaceName, methodName);
-      System.out.println(sqlId);
+      System.out.printf("SQL ID => %s\n", sqlId);
 
       // => 리턴 타입에 따라 메서드를 호출한다.
       try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
@@ -39,7 +38,6 @@ public class MybatisDaoFactory {
         if (returnType == List.class) {
           return (args == null) ? sqlSession.selectList(sqlId) : //
           sqlSession.selectList(sqlId, args[0]);
-
         } else if (returnType == int.class || returnType == void.class) {
           return (args == null) ? sqlSession.update(sqlId) : // update()는 insert(), delete() 과 같다.
           sqlSession.update(sqlId, args[0]);
@@ -49,7 +47,6 @@ public class MybatisDaoFactory {
         }
       }
     };
-
   }
 
   @SuppressWarnings("unchecked")

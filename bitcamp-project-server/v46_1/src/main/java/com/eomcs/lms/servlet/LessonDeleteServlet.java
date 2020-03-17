@@ -9,10 +9,6 @@ import com.eomcs.util.Prompt;
 @Component("/lesson/delete")
 public class LessonDeleteServlet implements Servlet {
 
-  // DAO 클래스를 구체적으로 지정하기 보다는
-  // 인터페이스를 지정함으로써
-  // 향후 다른 구현체로 교체하기 쉽도록 한다.
-  //
   LessonService lessonService;
 
   public LessonDeleteServlet(LessonService lessonService) {
@@ -21,11 +17,9 @@ public class LessonDeleteServlet implements Servlet {
 
   @Override
   public void service(Scanner in, PrintStream out) throws Exception {
-
     int no = Prompt.getInt(in, out, "번호? ");
 
-
-    if (lessonService.delete(no) > 0) {
+    if (lessonService.delete(no) > 0) { // 삭제했다면,
       out.println("강의를 삭제했습니다.");
 
     } else {

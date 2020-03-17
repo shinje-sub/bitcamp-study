@@ -10,10 +10,6 @@ import com.eomcs.util.Prompt;
 @Component("/lesson/detail")
 public class LessonDetailServlet implements Servlet {
 
-  // DAO 클래스를 구체적으로 지정하기 보다는
-  // 인터페이스를 지정함으로써
-  // 향후 다른 구현체로 교체하기 쉽도록 한다.
-  //
   LessonService lessonService;
 
   public LessonDetailServlet(LessonService lessonService) {
@@ -35,7 +31,7 @@ public class LessonDetailServlet implements Servlet {
       out.printf("총수업시간: %d\n", lesson.getTotalHours());
       out.printf("일수업시간: %d\n", lesson.getDayHours());
     } else {
-      out.println("해당 번호의 수업이 없습니다.");
+      out.println("해당 번호의 강의가 없습니다.");
     }
   }
 }

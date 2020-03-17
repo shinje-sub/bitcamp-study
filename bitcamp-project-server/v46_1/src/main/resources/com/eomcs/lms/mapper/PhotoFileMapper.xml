@@ -15,7 +15,7 @@
     insert into lms_photo_file(photo_id,file_path) 
     values
     <foreach collection="files" item="file" separator=",">
-    (#{no}, #{file.filepath})
+      (#{no}, #{file.filepath})
     </foreach>
   </insert>
   

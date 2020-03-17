@@ -4,14 +4,13 @@ import java.io.Serializable;
 import java.sql.Date;
 
 // 객체를 serialize 하려면 이 기능을 활성화시켜야 한다.
-// - java.io.Serialize을 구련하라!
-// - serialize 데이터를 구분하기 위해 버전 번호를 명시하라
+// - java.io.Serializable을 구현하라!
+// - serialize 데이터를 구분하기 위해 버전 번호를 명시하라.
 //
-
-
 public class Member implements Serializable {
 
   private static final long serialVersionUID = 20200131L;
+
   private int no;
   private String name;
   private String email;
@@ -42,67 +41,10 @@ public class Member implements Serializable {
   }
 
   public String toCsvString() {
-    return String.format("%d,%s,%s,%s,%s,%s,%s\n", this.getNo(), this.getName(), this.getEmail(),
+    return String.format("%d,%s,%s,%s,%s,%s,%s", this.getNo(), this.getName(), this.getEmail(),
         this.getPassword(), this.getPhoto(), this.getTel(), this.getRegisteredDate());
-
   }
 
-
-  public int getNo() {
-    return no;
-  }
-
-  public void setNo(int no) {
-    this.no = no;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public String getPhoto() {
-    return photo;
-  }
-
-  public void setPhoto(String photo) {
-    this.photo = photo;
-  }
-
-  public String getTel() {
-    return tel;
-  }
-
-  public void setTel(String tel) {
-    this.tel = tel;
-  }
-
-  public Date getRegisteredDate() {
-    return registeredDate;
-  }
-
-  public void setRegisteredDate(Date registeredDate) {
-    this.registeredDate = registeredDate;
-  }
 
   @Override
   public int hashCode() {
@@ -162,6 +104,59 @@ public class Member implements Serializable {
     return true;
   }
 
+  public int getNo() {
+    return no;
+  }
+
+  public void setNo(int no) {
+    this.no = no;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public String getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
+  }
+
+  public String getTel() {
+    return tel;
+  }
+
+  public void setTel(String tel) {
+    this.tel = tel;
+  }
+
+  public Date getRegisteredDate() {
+    return registeredDate;
+  }
+
+  public void setRegisteredDate(Date registeredDate) {
+    this.registeredDate = registeredDate;
+  }
 }
-
-

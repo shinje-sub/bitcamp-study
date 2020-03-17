@@ -18,22 +18,21 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
     this.originalFactory = originalFactory;
   }
 
-  @Override
-  public SqlSession openSession() {
-    // 기본으로 자동 커밋으로 동작하는 SqlSession을 만들어 리턴한다.
-    return this.openSession(true);
-  }
-
   // 스레드 작업이 끝난 후 SqlSession 객체를 제거하고 닫는다.
   public void closeSession() {
     // 스레드에서 꺼낸다.
     SqlSession sqlSession = sqlSessionLocal.get();
     if (sqlSession != null) {
       sqlSessionLocal.remove(); // 스레드에서 제거
-
       // 이제 진짜로 SqlSession을 닫는다.
-      ((SqlSessionProxy) sqlSession).realclose(); // SqlSession 닫기
+      ((SqlSessionProxy) sqlSession).realClose();
     }
+  }
+
+  @Override
+  public SqlSession openSession() {
+    // 기본으로 자동 커밋으로 동작하는 SqlSession을 만들어 리턴한다.
+    return this.openSession(true);
   }
 
   @Override
@@ -42,13 +41,13 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
     SqlSession sqlSession = sqlSessionLocal.get();
 
     if (sqlSession == null) {
-      // 스레드에 보관된게 없다면 새로 만든다.
+      // 스레드에 보관된 게 없다면 새로 만든다.
       sqlSession = new SqlSessionProxy(originalFactory.openSession(autoCommit));
 
-      // 나중에 다른곳에서 사용하도록 스레드에 보관한다.
+      // 나중에 다른 곳에서 사용하도록 스레드에 보관한다.
       sqlSessionLocal.set(sqlSession);
-
     }
+
     return sqlSession;
   }
 
@@ -86,7 +85,6 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
   public Configuration getConfiguration() {
     return originalFactory.getConfiguration();
   }
-
 
 
 }
