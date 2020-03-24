@@ -7,8 +7,8 @@
 
 ## 실습 소스 및 결과
 
-- src/main/java/com/eomcs/domain/PhotoBoard.java 추가
-- src/main/java/com/eomcs/dao/PhotoBoardDao.java 추가
+- src/main/java/com/eomcs/domain/PhotoFile.java 추가
+- src/main/java/com/eomcs/dao/PhotoFileDao.java 추가
 - src/main/java/com/eomcs/dao/mariadb/PhotoBoardDaoImpl.java 추가
 - src/main/java/com/eomcs/servlet/PhotoBoardListServlet.java 추가
 - src/main/java/com/eomcs/servlet/PhotoBoardDetailServlet.java 추가

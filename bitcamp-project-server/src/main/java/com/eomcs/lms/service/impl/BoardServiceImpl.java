@@ -1,10 +1,12 @@
 package com.eomcs.lms.service.impl;
 
 import java.util.List;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.service.BoardService;
 
+@Component
 public class BoardServiceImpl implements BoardService {
 
   BoardDao boardDao;

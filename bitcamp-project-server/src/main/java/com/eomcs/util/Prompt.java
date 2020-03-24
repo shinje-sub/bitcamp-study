@@ -26,7 +26,6 @@ public class Prompt {
     out.println("!{}!");
     out.flush();
     return in.nextLine();
-
   }
 
   public static String getString(Scanner in, PrintStream out, String title, String defaultValue) {

@@ -4,12 +4,15 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.domain.PhotoFile;
 import com.eomcs.lms.service.PhotoBoardService;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.RequestMapping;
 
-public class PhotoBoardUpdateServlet implements Servlet {
+@Component("/photoboard/update")
+public class PhotoBoardUpdateServlet {
 
   PhotoBoardService photoBoardService;
 
@@ -17,7 +20,7 @@ public class PhotoBoardUpdateServlet implements Servlet {
     this.photoBoardService = photoBoardService;
   }
 
-  @Override
+  @RequestMapping("/photoboard/update")
   public void service(Scanner in, PrintStream out) throws Exception {
 
     int no = Prompt.getInt(in, out, "번호? ");

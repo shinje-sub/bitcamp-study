@@ -2,10 +2,13 @@ package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.service.PhotoBoardService;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.RequestMapping;
 
-public class PhotoBoardDeleteServlet implements Servlet {
+@Component("/photoboard/delete")
+public class PhotoBoardDeleteServlet {
 
   PhotoBoardService photoBoardService;
 
@@ -13,7 +16,7 @@ public class PhotoBoardDeleteServlet implements Servlet {
     this.photoBoardService = photoBoardService;
   }
 
-  @Override
+  @RequestMapping("/photoboard/delete")
   public void service(Scanner in, PrintStream out) throws Exception {
     int no = Prompt.getInt(in, out, "번호? ");
     photoBoardService.delete(no);

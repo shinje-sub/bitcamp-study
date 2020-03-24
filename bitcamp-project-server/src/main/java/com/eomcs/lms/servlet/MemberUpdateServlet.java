@@ -2,11 +2,14 @@ package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Member;
 import com.eomcs.lms.service.MemberService;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.RequestMapping;
 
-public class MemberUpdateServlet implements Servlet {
+@Component("/member/update")
+public class MemberUpdateServlet {
 
   MemberService memberService;
 
@@ -14,7 +17,7 @@ public class MemberUpdateServlet implements Servlet {
     this.memberService = memberService;
   }
 
-  @Override
+  @RequestMapping("/member/update")
   public void service(Scanner in, PrintStream out) throws Exception {
     int no = Prompt.getInt(in, out, "번호? ");
 

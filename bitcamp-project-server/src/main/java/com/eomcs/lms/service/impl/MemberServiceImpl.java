@@ -2,10 +2,12 @@ package com.eomcs.lms.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.MemberDao;
 import com.eomcs.lms.domain.Member;
 import com.eomcs.lms.service.MemberService;
 
+@Component
 public class MemberServiceImpl implements MemberService {
 
   MemberDao memberDao;

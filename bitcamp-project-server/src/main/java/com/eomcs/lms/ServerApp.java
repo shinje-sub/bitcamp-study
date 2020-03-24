@@ -3,6 +3,8 @@ package com.eomcs.lms;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -12,52 +14,33 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
 import com.eomcs.lms.context.ApplicationContextListener;
-import com.eomcs.lms.service.BoardService;
-import com.eomcs.lms.service.LessonService;
-import com.eomcs.lms.service.MemberService;
-import com.eomcs.lms.service.PhotoBoardService;
-import com.eomcs.lms.servlet.BoardAddServlet;
-import com.eomcs.lms.servlet.BoardDeleteServlet;
-import com.eomcs.lms.servlet.BoardDetailServlet;
-import com.eomcs.lms.servlet.BoardListServlet;
-import com.eomcs.lms.servlet.BoardUpdateServlet;
-import com.eomcs.lms.servlet.LessonAddServlet;
-import com.eomcs.lms.servlet.LessonDeleteServlet;
-import com.eomcs.lms.servlet.LessonDetailServlet;
-import com.eomcs.lms.servlet.LessonListServlet;
-import com.eomcs.lms.servlet.LessonSearchServlet;
-import com.eomcs.lms.servlet.LessonUpdateServlet;
-import com.eomcs.lms.servlet.LoginServlet;
-import com.eomcs.lms.servlet.MemberAddServlet;
-import com.eomcs.lms.servlet.MemberDeleteServlet;
-import com.eomcs.lms.servlet.MemberDetailServlet;
-import com.eomcs.lms.servlet.MemberListServlet;
-import com.eomcs.lms.servlet.MemberSearchServlet;
-import com.eomcs.lms.servlet.MemberUpdateServlet;
-import com.eomcs.lms.servlet.PhotoBoardAddServlet;
-import com.eomcs.lms.servlet.PhotoBoardDeleteServlet;
-import com.eomcs.lms.servlet.PhotoBoardDetailServlet;
-import com.eomcs.lms.servlet.PhotoBoardListServlet;
-import com.eomcs.lms.servlet.PhotoBoardUpdateServlet;
-import com.eomcs.lms.servlet.Servlet;
-import com.eomcs.sql.SqlSessionFactoryProxy;
+import com.eomcs.util.RequestHandler;
+import com.eomcs.util.RequestMappingHandlerMapping;
 
 public class ServerApp {
+
+  // log4j의 logger 준비
+  static Logger logger = LogManager.getLogger(ServerApp.class);
 
   // 옵저버 관련 코드
   Set<ApplicationContextListener> listeners = new HashSet<>();
   Map<String, Object> context = new HashMap<>();
-
-  // 커맨드(예: Servlet 구현체) 디자인 패턴과 관련된 코드
-  Map<String, Servlet> servletMap = new HashMap<>();
 
   // 스레드 풀
   ExecutorService executorService = Executors.newCachedThreadPool();
 
   // 서버 멈춤 여부 설정 변수
   boolean serverStop = false;
+
+  // IoC 컨테이너 준비
+  ApplicationContext iocContainer;
+
+  // request handler 맴퍼 준비
+  RequestMappingHandlerMapping handlerMapper;
 
   public void addApplicationContextListener(ApplicationContextListener listener) {
     listeners.add(listener);
@@ -84,69 +67,25 @@ public class ServerApp {
 
     notifyApplicationInitialized();
 
-    // SqlSessionFactory를 꺼낸다.
-    SqlSessionFactory sqlSessionFactory = //
-        (SqlSessionFactory) context.get("sqlSessionFactory");
+    // ApplicationContext (IoC 컨테이너)를 꺼낸다.
+    iocContainer = (ApplicationContext) context.get("iocContainer");
 
-    // DataLoaderListener가 준비한 서비스 객체를 꺼내 변수에 저장한다.
-    LessonService lessonService = //
-        (LessonService) context.get("lessonService");
-    PhotoBoardService photoBoardService = //
-        (PhotoBoardService) context.get("photoBoardService");
-    BoardService boardService = //
-        (BoardService) context.get("boardService");
-    MemberService memberService = //
-        (MemberService) context.get("memberService");
-
-    // 커맨드 객체 역할을 수행하는 서블릿 객체를 맵에 보관한다.
-    servletMap.put("/board/list", new BoardListServlet(boardService));
-    servletMap.put("/board/add", new BoardAddServlet(boardService));
-    servletMap.put("/board/detail", new BoardDetailServlet(boardService));
-    servletMap.put("/board/update", new BoardUpdateServlet(boardService));
-    servletMap.put("/board/delete", new BoardDeleteServlet(boardService));
-
-    servletMap.put("/lesson/list", new LessonListServlet(lessonService));
-    servletMap.put("/lesson/add", new LessonAddServlet(lessonService));
-    servletMap.put("/lesson/detail", new LessonDetailServlet(lessonService));
-    servletMap.put("/lesson/update", new LessonUpdateServlet(lessonService));
-    servletMap.put("/lesson/delete", new LessonDeleteServlet(lessonService));
-    servletMap.put("/lesson/search", new LessonSearchServlet(lessonService));
-
-    servletMap.put("/member/list", new MemberListServlet(memberService));
-    servletMap.put("/member/add", new MemberAddServlet(memberService));
-    servletMap.put("/member/detail", new MemberDetailServlet(memberService));
-    servletMap.put("/member/update", new MemberUpdateServlet(memberService));
-    servletMap.put("/member/delete", new MemberDeleteServlet(memberService));
-    servletMap.put("/member/search", new MemberSearchServlet(memberService));
-
-    servletMap.put("/photoboard/list", //
-        new PhotoBoardListServlet(photoBoardService, lessonService));
-    servletMap.put("/photoboard/detail", //
-        new PhotoBoardDetailServlet(photoBoardService));
-    servletMap.put("/photoboard/add", //
-        new PhotoBoardAddServlet(photoBoardService, lessonService));
-    servletMap.put("/photoboard/update", //
-        new PhotoBoardUpdateServlet(photoBoardService));
-    servletMap.put("/photoboard/delete", //
-        new PhotoBoardDeleteServlet(photoBoardService));
-
-    servletMap.put("/auth/login", new LoginServlet(memberService));
+    // request handler mapper 를 꺼낸다.
+    handlerMapper = (RequestMappingHandlerMapping) context.get("handlerMapper");
 
     try (ServerSocket serverSocket = new ServerSocket(9999)) {
 
-      System.out.println("클라이언트 연결 대기중...");
+      logger.info("클라이언트 연결 대기중...");
 
       while (true) {
         Socket socket = serverSocket.accept();
-        System.out.println("클라이언트와 연결되었음!");
+        logger.info("클라이언트와 연결되었음!");
 
         executorService.submit(() -> {
           processRequest(socket);
 
-          // 스레드에 보관된 SqlSession 객체를 제거한다.
-          ((SqlSessionFactoryProxy) sqlSessionFactory).closeSession();
 
-          System.out.println("--------------------------------------");
+          logger.info("--------------------------------------");
         });
 
         // 현재 '서버 멈춤' 상태라면,
@@ -158,7 +97,8 @@ public class ServerApp {
       }
 
     } catch (Exception e) {
-      System.out.println("서버 준비 중 오류 발생!");
+      logger.error(String.format("서버 준비 중 오류 발생!: %s", //
+          e.getMessage()));
     }
 
 
@@ -189,7 +129,7 @@ public class ServerApp {
     // DB 커넥션을 닫도록 한다.
     notifyApplicationDestroyed();
 
-    System.out.println("서버 종료!");
+    logger.info("서버 종료!");
   } // service()
 
 
@@ -200,36 +140,45 @@ public class ServerApp {
         PrintStream out = new PrintStream(socket.getOutputStream())) {
 
       String request = in.nextLine();
-      System.out.printf("=> %s\n", request);
+      logger.info(String.format("요청 명령 => %s", request));
 
       if (request.equalsIgnoreCase("/server/stop")) {
         quit(out);
         return;
       }
 
-      Servlet servlet = servletMap.get(request);
+      RequestHandler requestHandler = handlerMapper.getHandler(request);
 
-      if (servlet != null) {
+      if (requestHandler != null) {
         try {
-          servlet.service(in, out);
+          requestHandler.getMethod().invoke( //
+              requestHandler.getBean(), //
+              in, out);
 
         } catch (Exception e) {
           out.println("요청 처리 중 오류 발생!");
           out.println(e.getMessage());
 
-          System.out.println("클라이언트 요청 처리 중 오류 발생:");
-          e.printStackTrace();
+          logger.info("클라이언트 요청 처리 중 오류 발생");
+          logger.info(e.getMessage());
+          StringWriter strWriter = new StringWriter();
+          e.printStackTrace(new PrintWriter(strWriter));
+          logger.debug(strWriter.toString());
         }
       } else {
         notFound(out);
+        logger.info("해당 명령을 지원하지 않습니다.");
       }
       out.println("!end!");
       out.flush();
-      System.out.println("클라이언트에게 응답하였음!");
+      logger.info("클라이언트에게 응답하였음!");
 
     } catch (Exception e) {
-      System.out.println("예외 발생:");
-      e.printStackTrace();
+      logger.error(String.format("예외 발생: %s", e.getMessage()));
+      StringWriter strWriter = new StringWriter();
+      e.printStackTrace(new PrintWriter(strWriter));
+      logger.debug(strWriter.toString());
+
     }
   }
 
@@ -245,10 +194,10 @@ public class ServerApp {
   }
 
   public static void main(String[] args) {
-    System.out.println("서버 수업 관리 시스템입니다.");
+    logger.info("서버 수업 관리 시스템입니다.");
 
     ServerApp app = new ServerApp();
-    app.addApplicationContextListener(new DataLoaderListener());
+    app.addApplicationContextListener(new ContextLoaderListener());
     app.service();
   }
 }

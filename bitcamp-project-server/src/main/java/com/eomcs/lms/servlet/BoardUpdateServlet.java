@@ -2,11 +2,14 @@ package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.service.BoardService;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.RequestMapping;
 
-public class BoardUpdateServlet implements Servlet {
+@Component("/board/update")
+public class BoardUpdateServlet {
 
   BoardService boardService;
 
@@ -14,7 +17,7 @@ public class BoardUpdateServlet implements Servlet {
     this.boardService = boardService;
   }
 
-  @Override
+  @RequestMapping("/board/update")
   public void service(Scanner in, PrintStream out) throws Exception {
 
     int no = Prompt.getInt(in, out, "번호? ");

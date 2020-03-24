@@ -5,11 +5,14 @@ import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.service.LessonService;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.RequestMapping;
 
-public class LessonSearchServlet implements Servlet {
+@Component("/lesson/search")
+public class LessonSearchServlet {
 
   LessonService lessonService;
 
@@ -17,7 +20,7 @@ public class LessonSearchServlet implements Servlet {
     this.lessonService = lessonService;
   }
 
-  @Override
+  @RequestMapping("/lesson/search")
   public void service(Scanner in, PrintStream out) throws Exception {
     HashMap<String, Object> params = new HashMap<>();
     String keyword = Prompt.getString(in, out, "강의명 검색: ");

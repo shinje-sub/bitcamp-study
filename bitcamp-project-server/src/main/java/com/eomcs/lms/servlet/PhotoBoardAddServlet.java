@@ -4,14 +4,17 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.domain.PhotoFile;
 import com.eomcs.lms.service.LessonService;
 import com.eomcs.lms.service.PhotoBoardService;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.RequestMapping;
 
-public class PhotoBoardAddServlet implements Servlet {
+@Component("/photoboard/add")
+public class PhotoBoardAddServlet {
 
   PhotoBoardService photoBoardService;
   LessonService lessonService;
@@ -23,7 +26,7 @@ public class PhotoBoardAddServlet implements Servlet {
     this.lessonService = lessonService;
   }
 
-  @Override
+  @RequestMapping("/photoboard/add")
   public void service(Scanner in, PrintStream out) throws Exception {
 
     PhotoBoard photoBoard = new PhotoBoard();
