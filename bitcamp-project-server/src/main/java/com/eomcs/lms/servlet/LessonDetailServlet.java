@@ -1,9 +1,15 @@
 package com.eomcs.lms.servlet;
 
+<<<<<<< Updated upstream
 import java.io.PrintWriter;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Lesson;
+=======
+import java.io.PrintStream;
+import java.util.Scanner;
+import com.eomcs.lms.domain.Carinfor;
+>>>>>>> Stashed changes
 import com.eomcs.lms.service.LessonService;
 import com.eomcs.util.RequestMapping;
 
@@ -16,10 +22,18 @@ public class LessonDetailServlet {
     this.lessonService = lessonService;
   }
 
+<<<<<<< Updated upstream
   @RequestMapping("/lesson/detail")
   public void service(Map<String, String> params, PrintWriter out) throws Exception {
     int no = Integer.parseInt(params.get("no"));
     Lesson lesson = lessonService.get(no);
+=======
+  @Override
+  public void service(Scanner in, PrintStream out) throws Exception {
+    int no = Prompt.getInt(in, out, "번호? ");
+
+    Carinfor lesson = lessonService.get(no);
+>>>>>>> Stashed changes
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
