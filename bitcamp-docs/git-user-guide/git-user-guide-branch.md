@@ -95,13 +95,19 @@ If you are sure you want to delete it, run 'git branch -D b1'.
 $ git branch -D b1    <=== -D 옵션으로 merge 되지 않은 브랜치를 강제 삭제하라.
 Deleted branch b1 (was 519ee27).
 ```
-
-
+예6) 커밋 정보와 브랜치 정보를 함께 보기
+$ git log --online --graph --all
 
 ### git checkout [브랜치 이름]
 
-- HEAD 포인터가 다른 브랜치를 가리키게 한다.
-- HEAD 포인터가 가리키는 브랜치가 바뀌면, 작업 디렉토리도 그 브랜치의 커밋 정보에 따라 바뀐다.
+- HEAD?
+  - 작업 디렉토리에 로딩한 브랜치를 가리킨다.
+- 작업 디렉토리에 커밋 파일을 교체하기
+  - HEAD 포인터가 다른 브랜치를 가리키게 한다.
+- HEAD 포인터가 가리키는 브랜치가 바뀌면, 
+  작업 디렉토리도 그 브랜치의 커밋 정보에 따라 바뀐다.
+- 명령?
+  - git checkout 브랜치명
 
 ```
 예1) HEAD 포인터를 b1 브랜치로 옮긴다.

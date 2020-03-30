@@ -113,6 +113,7 @@ $ git config --global core.editor emacs
 
 ```
 예3) 설정 확인하기
+$ git config -l
 $ git config --list
 ```
 
@@ -159,10 +160,12 @@ $ git config --help
 예2) bin/ 디렉토리를 통째로 무시하기
 bin/
 
-예3) 현재 디렉토리의 *.log 파일만 무시하기. src/*.log처럼 기타 하위 디렉토리에 있는 *.log 파일은 포함하기
+예3) 현재 디렉토리의 *.log 파일만 무시하기. 
+=> src/*.log처럼 기타 하위 디렉토리에 있는 *.log 파일은 포함하기
 /*.log
 
-예4) src/*.class 파일은 무시하고, src/main/*.class 파일은 포함하기
+예4) src/*.class 파일은 무시하고, 
+- src/main/*.class 파일은 포함하기
 src/*.class
 
 예5) src 디렉토리 및 그 하위 디렉토리에 있는 *.class 파일 무시하기
@@ -173,12 +176,16 @@ src/**/*.class
 
 예7) 확장자가 '.o' 또는 '.a'인 파일 무시하기
 *.[oa]
+- 위의 방식 대신에 아래처럼 낱개를 일일이 지정해도 된다.
+*.o
+*.a
 
 예8) *~
 파일명이 ~로 끝나는 파일
 
-예9) 만약 *.log 파일을 무시한다면, cotext.log 파일은 무시하지 않고 포함하기
-!context.log
+예9) *.log 파일 중에서 cotext.log 파일은 무시하지 않고 포함하기
+- 문법) !(무시하지말아야할파일.확장자)
+- 예) !context.log
 ```
 
 ### git clone [url] [폴더]
@@ -293,7 +300,7 @@ AM src/main/webapp/test06.html
   - Staged 상태의 파일을 다시 변경한 경우.
 - `?? src/main/webapp/test03.html`
   - 작업 디렉토리에 새로 파일을 추가한 경우.
-- `A_ src/main/webapp/test04.html`
+- `A_ src/main/webapp/test04.html`  
   - 새로 추가한 파일을 'git add' 명령으로 Stating Area에 등록한 경우.
 - `AM src/main/webapp/test05.html`
   - 새로 추가한 파일을 Staged 상태로 만든 후, 다시 변경한 경우.
@@ -307,7 +314,7 @@ AM src/main/webapp/test06.html
      변경경 전/후를 출력하기
 
 $ git diff
-diff --git a/src/main/webapp/test01.html b/src/main/webapp/test01.html
+diff --git a/src/main/webapp/test01 .html b/src/main/webapp/test01.html
 index 80ba906..3322e11 100644
 --- a/src/main/webapp/test01.html
 +++ b/src/main/webapp/test01.html
@@ -357,8 +364,10 @@ index 0000000..3081b8d
 ### git checkout [파일]
 
 - 작업 디렉토리의 파일을 변경한 후 변경 전으로 되돌릴 때 사용한다.
-- Staging Area에 마지막으로 기록된 버전으로 되돌린다.
-- `git add`를 수행한 적이 없다면 Staging Area에는 마지막으로 커밋한 파일을 가리킨다. 따라서 마지막으로 커밋된 파일로 되돌릴 것이다.
+- Statging Area에 등록된 것이 없다면, 최종 커밋한 버전으로 되돌린다.
+- Staging Area에 등록된 것이 있다면, 현재 Staging Area에 기록된 버전으로 되돌린다.
+- `git add`를 수행한 적이 없다면 Staging Area에는 마지막으로 커밋한 파일을 가리킨다. 
+   따라서 마지막으로 커밋된 파일로 되돌릴 것이다.
 
 ```
 예) src/main/webapp/index.html 파일을 편집 전으로 되돌리기
@@ -370,6 +379,7 @@ $ git checkout src/main/webapp/index.html
 - Staging Area의 기록에서 지정된 파일을 뺀다.
 - 작업 디렉토리에 해당 파일이 있다면 그 파일도 자동 삭제된다.
 - 이전 스냅샷에는 해당 파일이 계속 남아 있다.
+- 파일 삭제 + git add = git rm
 
 ```
 예1) 작업 디렉토리에 있는 파일을 삭제한 후 Git에서도 제거하기
@@ -500,6 +510,15 @@ $ git add ex03.html
 $ git commit -m 'ex03 변경'
 $ git add ex04.html
 $ git commit --amend -m 'ex03 및 ex04 변경'
+```
+
+예) 커밋정보를 한 줄로 출력해서 보기
+$ gitlog --oneline
+```
+5644da3 16
+ae933ea 15
+5cedae5 14
+abe93cc 13
 ```
 
 ### git reset HEAD [파일]
