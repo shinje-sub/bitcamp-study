@@ -73,7 +73,6 @@ public class ServerApp //
   // 옵저버 관련코드 끝!
 
   public void service() throws Exception {
-
     notifyApplicationInitialized();
 
     // ApplicationContext (IoC 컨테이너)를 꺼낸다.
@@ -84,22 +83,21 @@ public class ServerApp //
         (RequestMappingHandlerMapping) context.get("handlerMapper");
 
     // 소켓 동작 설정
-    SocketConfig socketConfig = //
-        SocketConfig.custom() //
-            .setSoTimeout(15, TimeUnit.SECONDS) //
-            .setTcpNoDelay(true) //
-            .build();
+    SocketConfig socketConfig = SocketConfig.custom() //
+        .setSoTimeout(15, TimeUnit.SECONDS)//
+        .setTcpNoDelay(true) //
+        .build();
 
     // HTTP 서버 준비
-    HttpServer server = ServerBootstrap.bootstrap() //
+    HttpServer server = ServerBootstrap.bootstrap()//
         .setListenerPort(9999) // 웹서버 포트 번호 설정
         .setSocketConfig(socketConfig) // 기본 소켓 동작 설정
         .setSslContext(null) // SSL 설정
         .setExceptionListener(this) // 예외 처리자 설정
-        .register("*", this)// 요청 처리자 설정
+        .register("*", this) // 요청 처리자 설정
         .create(); // 웹서버 객체 생성
 
-    // 웹서버 시작시킨다.
+    // 웹서버를 시작시킨다.
     server.start();
 
     // 웹서버를 종료시키는 스레드를 등록한다.
@@ -113,9 +111,8 @@ public class ServerApp //
     });
 
     logger.info("비트서버 시작(9999)!");
+
     server.awaitTermination(TimeValue.MAX_VALUE);
-
-
   } // service()
 
   private void notFound(PrintWriter out) throws IOException {
@@ -141,7 +138,7 @@ public class ServerApp //
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>실행 오류!</h1>");
-    out.printf("<p>%s\n", ex.getMessage());
+    out.printf("<p>%s</p>\n", ex.getMessage());
     out.println("</body>");
     out.println("</html>");
   }
@@ -193,35 +190,36 @@ public class ServerApp //
       ex.printStackTrace();
     }
   }
-  // ExceptionListener 인터페이스 구현 끝
+  // ExceptionListener 인터페이스 구현 - 끝
 
   // HttpRequestHandler 인터페이스 구현
   @Override
-  public void handle(//
-      final ClassicHttpRequest request, // 클라이언트 요청 처리 도구
-      final ClassicHttpResponse response, // 클라이언트 응답 처리 도구
-      final HttpContext context) // HTTP 설정 도구
-      throws HttpException, IOException {
+  public void handle( //
+      final ClassicHttpRequest request, // 클라이언트 요청처리 도구
+      final ClassicHttpResponse response, // 클라이언트 응답처리 도구
+      final HttpContext context // HTTP 설정 도구
+  ) throws HttpException, IOException {
 
     logger.info("--------------------------------------");
     logger.info("클라이언트의 요청이 들어옴!");
+
+    // 클라이언트로 콘텐트 출력할 때 사용할 도구 준비
+    // => 이 출력 스트림을 사용하여 출력하는 모든 데이터는
+    // 메모리에 임시 보관된다.
+    StringWriter outBuffer = new StringWriter();
+    PrintWriter out = new PrintWriter(outBuffer);
 
     String method = request.getMethod(); // 예) GET|POST|HEAD|PUT|...
     String requestUri = request.getPath(); // 예) /photoboard/list?lessonNo=100
     logger.info("{} {}", method, requestUri);
 
-    String servletPath = getServletPath(requestUri);
-    logger.debug(String.format("servlet path => %s", servletPath));
-    // 클라이언트로 콘텐드 출력할 때 사용할 도구 준비
-    // => 이 출력 스트림을 사용하여 출력하는 모든 데이터는
-    // 메모리에 임시 보관된다.
-
-    StringWriter outBuffer = new StringWriter();
-    PrintWriter out = new PrintWriter(outBuffer);
     try {
+      String servletPath = getServletPath(requestUri);
+      logger.debug(String.format("servlet path => %s", servletPath));
 
       Map<String, String> params = getParameters(requestUri);
       RequestHandler requestHandler = handlerMapper.getHandler(servletPath);
+
       if (requestHandler != null) {
         // Request Handler의 메서드 호출
         requestHandler.getMethod().invoke( //
@@ -240,7 +238,6 @@ public class ServerApp //
       StringWriter strWriter = new StringWriter();
       e.printStackTrace(new PrintWriter(strWriter));
       logger.debug(strWriter.toString());
-
     }
 
     // 작업한 결과를 클라이언트로 보낸다.
@@ -250,8 +247,7 @@ public class ServerApp //
         ContentType.create("text/html", Charset.forName("UTF-8"))));
     logger.info("클라이언트에게 응답하였음!");
   }
-
-  // HttpRequestHandler 인터페이스 구현 끝
+  // HttpRequestHandler 인터페이스 구현 - 끝
 
   public static void main(String[] args) throws Exception {
     logger.info("서버 수업 관리 시스템입니다.");

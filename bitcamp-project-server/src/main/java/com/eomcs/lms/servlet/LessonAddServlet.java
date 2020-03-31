@@ -1,16 +1,10 @@
 package com.eomcs.lms.servlet;
 
-<<<<<<< Updated upstream
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Lesson;
-=======
-import java.io.PrintStream;
-import java.util.Scanner;
-import com.eomcs.lms.domain.Carinfor;
->>>>>>> Stashed changes
 import com.eomcs.lms.service.LessonService;
 import com.eomcs.util.RequestMapping;
 
@@ -23,7 +17,6 @@ public class LessonAddServlet {
     this.lessonService = lessonService;
   }
 
-<<<<<<< Updated upstream
   @RequestMapping("/lesson/add")
   public void service(Map<String, String> params, PrintWriter out) throws Exception {
     Lesson lesson = new Lesson();
@@ -33,11 +26,6 @@ public class LessonAddServlet {
     lesson.setEndDate(Date.valueOf(params.get("endDate")));
     lesson.setTotalHours(Integer.parseInt(params.get("totalHours")));
     lesson.setDayHours(Integer.parseInt(params.get("dayHours")));
-=======
-  @Override
-  public void service(Scanner in, PrintStream out) throws Exception {
-    Carinfor lesson = new Carinfor();
->>>>>>> Stashed changes
 
     lessonService.add(lesson);
 

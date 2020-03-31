@@ -7,12 +7,7 @@ import java.sql.Date;
 // - java.io.Serializable을 구현하라!
 // - serialize 데이터를 구분하기 위해 버전 번호를 명시하라.
 //
-<<<<<<< Updated upstream:bitcamp-project-server/src/main/java/com/eomcs/lms/domain/Lesson.java
 public class Lesson implements Serializable {
-=======
-
-public class Carinfor implements Serializable {
->>>>>>> Stashed changes:bitcamp-project-server/src/main/java/com/eomcs/lms/domain/Carinfor.java
 
   private static final long serialVersionUID = 20200131L;
 
@@ -31,10 +26,10 @@ public class Carinfor implements Serializable {
         + dayHours + "]";
   }
 
-  public static Carinfor valueOf(String csv) {
+  public static Lesson valueOf(String csv) {
     String[] data = csv.split(",");
 
-    Carinfor lesson = new Carinfor();
+    Lesson lesson = new Lesson();
     lesson.setNo(Integer.parseInt(data[0]));
     lesson.setTitle(data[1]);
     lesson.setDescription(data[2]);
@@ -68,7 +63,6 @@ public class Carinfor implements Serializable {
 
   @Override
   public boolean equals(Object obj) {
-<<<<<<< Updated upstream:bitcamp-project-server/src/main/java/com/eomcs/lms/domain/Lesson.java
     if (this == obj)
       return true;
     if (obj == null)
@@ -77,14 +71,6 @@ public class Carinfor implements Serializable {
       return false;
     Lesson other = (Lesson) obj;
     if (dayHours != other.dayHours)
-=======
-    if (obj.getClass() != Carinfor.class)
-      return false;
-
-    Carinfor other = (Carinfor) obj;
-
-    if (this.no != other.no)
->>>>>>> Stashed changes:bitcamp-project-server/src/main/java/com/eomcs/lms/domain/Carinfor.java
       return false;
     if (description == null) {
       if (other.description != null)
