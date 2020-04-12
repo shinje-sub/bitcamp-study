@@ -1,4 +1,4 @@
-package com.bitcamp.myproject.Algorithmus;
+package com.Algorithmus;
 
 public class Solution4 {
   // 자연수 N이 주어지면 N의 각 자릿수 합을 구해서 return 하는 함수 만들기

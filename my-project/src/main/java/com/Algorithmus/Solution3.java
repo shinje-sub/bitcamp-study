@@ -1,4 +1,4 @@
-package com.bitcamp.myproject.Algorithmus;
+package com.Algorithmus;
 
 class Solution3 {
   public String solution(String[] seoul) {

@@ -1,4 +1,4 @@
-package com.bitcamp.myproject.Algorithmus;
+package com.Algorithmus;
 
 import java.util.ArrayList;
 import java.util.List;

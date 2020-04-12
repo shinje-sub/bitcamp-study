@@ -1,4 +1,4 @@
-package com.bitcamp.myproject.Algorithmus;
+package com.Algorithmus;
 
 public class Solution5 {
   // 정수 num이 짝수일 경우 "Even"을 반환하고 홀수인경우 "Odd"를 반환하는 함수 완성하기

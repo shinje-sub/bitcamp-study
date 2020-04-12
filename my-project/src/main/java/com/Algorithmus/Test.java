@@ -1,4 +1,4 @@
-package com.bitcamp.myproject.Algorithmus;
+package com.Algorithmus;
 
 public class Test {
   public static void main(String[] args) {
