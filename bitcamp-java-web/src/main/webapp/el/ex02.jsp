@@ -18,9 +18,17 @@ application.setAttribute("name", "안중근");
 %>
 
 PageContext 보관소 : ${pageScope.name}<br>
+PageContext 보관소 : <%=pageContext.getAttribute("name")%><br>
+
 ServletRequest 보관소 : ${requestScope.name}<br>
+PageContext 보관소 : <%=requset.getAttribute("name")%><br>
+
 HttpSession  보관소 : ${sessionScope.name}<br>
+PageContext 보관소 : <%=Session.getAttribute("name")%><br>
+
 ServletContext 보관소 : ${applicationScope.name}<br>
+PageContext 보관소 : <%=applicetion.getAttribute("name")%><br>
+
 </body>
 </html>
 
