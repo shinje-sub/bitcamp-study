@@ -2,11 +2,3 @@
     pageEncoding="UTF-8"%>
 <% response.setHeader("Access-Control-Allow-Origin", "*");%>
 ${Integer.parseInt(param.a) + Integer.parseInt(param.b)}
-
-
-
-
-
-
-
-

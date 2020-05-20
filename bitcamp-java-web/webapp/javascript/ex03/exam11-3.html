@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex03</title>
+</head>
+<body>
+<h1>함수 - 클로저(closure)와 바깥 함수의 로컬 변수</h1>
+<script>
+"use strict"
+//
+function createBoard() {
+	var name;
+	var age;
+
+	var board = new Object();
+	board.setName = function(v) {
+		// 이 클로저가 사용ㅎ하는 value 변수는 바깥 함수의 로컬 변수이기 때문에
+		// 클로저 메모리로 복사해둔다.
+		name = v;
+	};
+	board.setAge = function(v) {
+		age = a;
+	};
+	board.set
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+

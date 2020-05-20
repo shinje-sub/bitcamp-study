@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '248137706436975',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v7.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+  
+
+  FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
+
+  function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+	}
+  
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0]; // script 태그를 찾아라
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
+  
+  /*
+  var x = function(){
+	     var js, 
+	     var fjs;
+	     d.getElementsByTagName('script')[0]; // script 태그를 찾아라
+	     if (document.getElementById('facebook-jssdk')) {
+	    	 return;
+	    	 }
+	     js = document.createElement('script'); 
+	     js.id = 'facebook-jssdk';
+	     js.src = "https://connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }
+  x();
+  */
+  
+</script>
+</body>
+</html>
