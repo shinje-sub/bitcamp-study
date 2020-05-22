@@ -7,23 +7,23 @@
 <body>
 <h1>jquery 사용</h1>
 <div id="d1">이전 값!</div>
-<div id ="d2"></div>
+<div id="d2"></div>
 
 <script src="jquery03.js"></script>
 <script>
 var tag = $('#d1');
-var tag2 =$('#d2');
+var tag2 = $('#d2');
 
-var content = tag.html(); // getter 동작
-tag2.html(content) // setter 동작
-tag.html('바꾼값!');
+var content = tag.html();
+tag2.html(content);
+tag.html('바꾼 값!');
 
-tag.style.color = "red";
-//tag.style.backgroundColor = 'gray'; // error
-//tag.style['background-color'] = 'gray'; //ok
-tag.style.backgroundColor = 'blue';
+tag.style.color = 'red';
+//tag.style.background-color = 'black'; // error
+//tag.style['background-color'] = 'gray'; // ok
+tag.style.backgroundColor = 'blue'; // ok
 tag.onclick = function() {
-	alert('okok')
+  alert('okok1')
 };
 </script>
 </body>

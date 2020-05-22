@@ -17,16 +17,14 @@ var tag2 = $('#d2');
 var content = tag.html();
 tag2.html(content);
 tag.html('바꾼 값!');
-tag.css ('color' ,'red');
-tag.css('background-color' ,'gray'); // ok
-
+tag.css('color', 'red');
+tag.css('background-color', 'gray');
 
 var divList = $('div');
-
 divList.css('border', '5px dashed red');
 divList.css('margin', '10px');
 
-divList.on('click' , function() {
+divList.on('click', function() {
   alert('okok1')
 });
 </script>
